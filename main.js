@@ -42,7 +42,6 @@
 
   const terminalData = {
     fanout: {
-      command: 'sanbox batch --tasks .sanbox/tasks.json --include "app/**" --max-parallel 4 --wait',
       lines: [
         ["comment", "# Four focused tasks. Four isolated workspaces."],
         ["command", '<span class="prompt">❯</span> sanbox batch <span class="flag">--tasks</span> <span class="string">.sanbox/tasks.json</span> \\'],
@@ -64,7 +63,6 @@
       ],
     },
     watch: {
-      command: "sanbox runs watch 8fc2 --view compact",
       lines: [
         ["comment", "# A normalized stream of agent activity."],
         ["command", '<span class="prompt">❯</span> sanbox runs watch 8fc2 <span class="flag">--view</span> compact'],
@@ -87,7 +85,6 @@
       ],
     },
     collect: {
-      command: "sanbox bundle inspect ./run.zip",
       lines: [
         ["comment", "# Inspect the portable input contract before dispatch."],
         ["command", '<span class="prompt">❯</span> sanbox bundle inspect <span class="string">./run.zip</span>'],
@@ -116,13 +113,10 @@
   const terminalCode = $("[data-terminal-code]");
   const runStack = $("[data-run-stack]");
   const terminalTabs = $$("[data-terminal-tab]");
-  const copyButton = $("[data-copy]");
-  let activeTerminal = "fanout";
 
   const renderTerminal = (key) => {
     const view = terminalData[key];
     if (!view || !terminalCode || !runStack) return;
-    activeTerminal = key;
     terminalTabs.forEach((tab) => tab.setAttribute("aria-selected", String(tab.dataset.terminalTab === key)));
     terminalCode.innerHTML = view.lines
       .map(([type, content], index) => `<span class="code-line ${type}" style="--line:${index}">${content || "&nbsp;"}</span>`)
@@ -142,22 +136,7 @@
   };
 
   terminalTabs.forEach((tab) => tab.addEventListener("click", () => renderTerminal(tab.dataset.terminalTab)));
-  renderTerminal(activeTerminal);
-
-  copyButton?.addEventListener("click", async () => {
-    const command = terminalData[activeTerminal].command;
-    try {
-      await navigator.clipboard.writeText(command);
-      copyButton.classList.add("is-copied");
-      $("span", copyButton).textContent = "Copied";
-      window.setTimeout(() => {
-        copyButton.classList.remove("is-copied");
-        $("span", copyButton).textContent = "Copy";
-      }, 1500);
-    } catch {
-      $("span", copyButton).textContent = "Select";
-    }
-  });
+  renderTerminal("fanout");
 
   const deploymentData = {
     eu: {
