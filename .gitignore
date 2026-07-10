@@ -1,3 +1,13 @@
 dist/
 *.tgz
 .DS_Store
+.openai/
+README.md
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+credentials*.json
+secrets*.json
