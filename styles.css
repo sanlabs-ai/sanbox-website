@@ -594,9 +594,9 @@
   .feature-summary-heading h2 { margin-top: 33px; font-size: clamp(52px, 5.5vw, 78px); }
   .feature-summary-heading > p:last-child { margin-top: 30px; color: var(--muted); font-size: 16px; line-height: 1.65; }
   .feature-summary-grid { display: grid; border-top: 1px solid var(--hairline); border-left: 1px solid var(--hairline); grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .feature-summary-card { display: flex; min-height: 280px; padding: 28px 30px 30px; border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); flex-direction: column; }
+  .feature-summary-card { display: flex; min-height: 250px; padding: 28px 30px 30px; border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); flex-direction: column; }
   .feature-summary-label { color: var(--signal-dark); font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .1em; }
-  .feature-summary-card h3 { max-width: 300px; margin-top: 50px; font-size: clamp(25px, 2.2vw, 32px); font-weight: 620; letter-spacing: -.04em; line-height: 1.05; }
+  .feature-summary-card h3 { max-width: 330px; margin-top: 38px; font-size: clamp(25px, 2.2vw, 32px); font-weight: 620; letter-spacing: -.04em; line-height: 1.05; }
   .feature-summary-card p { max-width: 38ch; margin-top: auto; padding-top: 24px; color: var(--muted); font-size: 14px; line-height: 1.6; }
 
   .closing-mark { position: absolute; bottom: -170px; left: 5%; width: min(42vw, 610px); aspect-ratio: 109.99 / 120.5; color: rgba(255,255,255,.17); transform: rotate(-7deg); }

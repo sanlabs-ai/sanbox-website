@@ -307,7 +307,7 @@
         <div class="feature-summary-heading reveal">
           <p class="section-index">06 / Built in</p>
           <h2>The complete<br />run loop.</h2>
-          <p>Sanbox handles the work around the model—from packaging context and launching isolated runners to streaming activity and retaining results.</p>
+          <p>Sanbox handles the work around the model—from packaging context and launching isolated runners to governing access, streaming activity, and retaining results.</p>
         </div>
         <div class="feature-summary-grid reveal">
           <article class="feature-summary-card">
@@ -316,19 +316,29 @@
             <p>Launch one task or a bounded parallel task list from your terminal, CI, or coding agent. Include only the files each run needs.</p>
           </article>
           <article class="feature-summary-card">
-            <span class="feature-summary-label">RUN</span>
+            <span class="feature-summary-label">ISOLATE</span>
             <h3>A workspace for every agent.</h3>
-            <p>Run each task in a resource-bounded, rootless Podman workspace with an approved OpenCode template and supported model.</p>
+            <p>Run each task in its own resource-bounded workspace, with a provider path from hardened containers to microVM-backed isolation.</p>
+          </article>
+          <article class="feature-summary-card">
+            <span class="feature-summary-label">CONFIGURE</span>
+            <h3>Bring your model and template.</h3>
+            <p>Use OpenCode with your preferred model and reusable templates for tools, permissions, and resource defaults.</p>
+          </article>
+          <article class="feature-summary-card">
+            <span class="feature-summary-label">CONTROL</span>
+            <h3>Policy travels with the run.</h3>
+            <p>Apply destination allowlists, scoped secrets, and per-run resource policy before the agent starts.</p>
           </article>
           <article class="feature-summary-card">
             <span class="feature-summary-label">OBSERVE</span>
-            <h3>Watch the work live.</h3>
-            <p>Stream turns, tool calls, file changes, model usage, logs, and errors. Detach and reattach without stopping the run.</p>
+            <h3>Watch intent become impact.</h3>
+            <p>Stream model usage, tool calls, file changes, network decisions, logs, and errors in one correlated trail.</p>
           </article>
           <article class="feature-summary-card">
             <span class="feature-summary-label">RETAIN</span>
             <h3>Keep the result inspectable.</h3>
-            <p>Keep outputs, logs, and execution state together for a configurable TTL, with read-only post-run Q&amp;A.</p>
+            <p>Keep artifacts, logs, state, and the workspace available for inspection, continuation, or export.</p>
           </article>
         </div>
       </section>
