@@ -11,7 +11,7 @@ const files = [
   ["/main.js", "main.js", "text/javascript; charset=utf-8"],
   ["/assets/favicon.svg", "assets/favicon.svg", "image/svg+xml; charset=utf-8"],
   ["/assets/sanlabs-symbol.svg", "assets/sanlabs-symbol.svg", "image/svg+xml; charset=utf-8"],
-  ["/assets/opencode-logo.svg", "assets/opencode-logo.svg", "image/svg+xml; charset=utf-8"]
+  ["/assets/opencode-wordmark.svg", "assets/opencode-wordmark.svg", "image/svg+xml; charset=utf-8"]
 ];
 
 const assets = {};
