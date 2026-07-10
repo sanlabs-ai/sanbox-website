@@ -66,7 +66,7 @@
     watch: {
       command: "sanbox runs watch 8fc2 --view compact",
       lines: [
-        ["comment", "# Semantic live watch · in development"],
+        ["comment", "# A normalized stream of agent activity."],
         ["command", '<span class="prompt">❯</span> sanbox runs watch 8fc2 <span class="flag">--view</span> compact'],
         ["result", ""],
         ["result", '<span class="info">00:00</span>  queued       Run queued'],

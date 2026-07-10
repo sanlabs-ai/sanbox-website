@@ -538,21 +538,12 @@
 
   .capability-heading { position: sticky; top: 110px; align-self: start; }
   .capability-heading h2 { margin-top: 32px; font-size: clamp(48px, 5vw, 72px); }
-  .status-key { display: flex; margin-top: 40px; gap: 18px; color: var(--muted); font-family: var(--mono); font-size: 8px; text-transform: uppercase; }
-  .status-key span { display: flex; align-items: center; gap: 6px; }
-  .status-key i { width: 6px; height: 6px; border-radius: 50%; }
-  .status-key .live { background: var(--green); }
-  .status-key .building { border: 1px solid var(--signal); }
   .capability-card { position: relative; min-height: 370px; padding: 22px; overflow: hidden; border: 1px solid var(--hairline); background: rgba(255,255,255,.17); }
   .capability-card:hover { border-color: rgba(17,24,22,.3); }
   .capability-wide { grid-column: 1 / -1; min-height: 330px; }
   .capability-dark { border-color: transparent; background: var(--graphite); color: white; }
   .cap-top { display: flex; align-items: center; justify-content: space-between; }
   .cap-number { color: var(--muted); font-family: var(--mono); font-size: 9px; }
-  .status-pill { padding: 4px 7px; border-radius: 999px; font-family: var(--mono); font-size: 7px; letter-spacing: .05em; text-transform: uppercase; }
-  .status-pill.available { background: rgba(55,200,135,.12); color: #248f61; }
-  .status-pill.building { border: 1px solid rgba(244,91,60,.35); color: var(--signal-dark); }
-  .capability-dark .status-pill.building { color: #fa8068; }
   .capability-card h3 { position: absolute; right: 22px; bottom: 65px; left: 22px; font-size: 20px; font-weight: 620; letter-spacing: -.035em; }
   .capability-card > p { position: absolute; right: 22px; bottom: 20px; left: 22px; max-width: 640px; color: var(--muted); font-size: 11px; line-height: 1.55; }
   .capability-dark > p { color: #7f8984; }
