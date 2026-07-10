@@ -9,20 +9,6 @@
   updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
 
-  const menuToggle = $("[data-menu-toggle]");
-  const nav = $("[data-nav]");
-  const setMenu = (open) => {
-    menuToggle?.setAttribute("aria-expanded", String(open));
-    menuToggle?.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
-    nav?.classList.toggle("is-open", open);
-    document.body.classList.toggle("menu-open", open);
-  };
-  menuToggle?.addEventListener("click", () => setMenu(menuToggle.getAttribute("aria-expanded") !== "true"));
-  $$("a", nav).forEach((link) => link.addEventListener("click", () => setMenu(false)));
-  window.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") setMenu(false);
-  });
-
   const revealElements = $$(".reveal");
   if (prefersReducedMotion || !("IntersectionObserver" in window)) {
     revealElements.forEach((element) => element.classList.add("is-visible"));
