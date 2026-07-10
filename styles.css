@@ -481,7 +481,7 @@
   .ring-runtime { width: 360px; height: 360px; border-color: rgba(186,250,107,.18); }
   .ring-workspace { width: 230px; height: 230px; border-color: rgba(240,189,85,.2); }
   .ring-core { position: absolute; top: 50%; left: 50%; display: flex; width: 112px; height: 112px; align-items: center; justify-content: center; border-radius: 50%; background: var(--paper); color: var(--ink); flex-direction: column; transform: translate(-50%, -50%); }
-  .agent-glyph { display: grid; width: 25px; height: 25px; place-items: center; border: 1px solid var(--signal); border-radius: 50%; color: var(--signal-dark); font-family: var(--mono); font-size: 9px; font-weight: 700; }
+  .ring-opencode-logo { box-sizing: content-box; width: 20px; height: 25px; padding: 5px; border-radius: 2px; background: var(--ink); }
   .ring-core strong { margin-top: 7px; font-size: 11px; }
   .ring-core small { color: var(--muted); font-family: var(--mono); font-size: 6px; text-transform: uppercase; }
   .ring-callout { position: absolute; display: flex; padding: 7px 9px; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.09); background: #121a17; color: #8e9893; font-family: var(--mono); font-size: 7px; }
@@ -522,6 +522,7 @@
   .fanout-visual i { width: 18%; height: 1px; background: var(--hairline); }
   .model-visual { position: absolute; top: 75px; right: 22px; left: 22px; display: grid; grid-template-columns: 78px 24px 1fr; gap: 10px; align-items: center; }
   .model-visual > span { display: grid; height: 78px; place-items: center; border-radius: 50%; background: var(--ink); color: var(--mint); font-family: var(--mono); font-size: 9px; font-weight: 700; line-height: 1.1; text-align: center; }
+  .model-visual .opencode-mark img { display: block; width: 32px; height: 40px; }
   .model-visual > i { color: var(--muted); font-family: var(--mono); font-size: 9px; font-style: normal; text-align: center; }
   .model-visual > div { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
   .model-visual b { padding: 8px 6px; border: 1px solid var(--hairline); font-family: var(--mono); font-size: 8.5px; font-weight: 500; text-align: center; }
