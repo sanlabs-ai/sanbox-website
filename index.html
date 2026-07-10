@@ -81,7 +81,7 @@
             <div class="agent-foot"><span>18 reports checked</span><span>03:12</span></div>
           </article>
           <article class="agent-card agent-card-b">
-            <div class="agent-head"><span class="agent-icon agent-icon-mint">C</span><span><b>Contract risks</b><small>Sonnet 5.0</small></span><i></i></div>
+            <div class="agent-head"><span class="agent-icon agent-icon-mint">C</span><span><b>Contract risks</b><small>GLM-OCR</small></span><i></i></div>
             <div class="agent-bar"><span style="--progress: 49%"></span></div>
             <div class="agent-foot"><span>12 clauses flagged</span><span>02:47</span></div>
           </article>
@@ -163,57 +163,59 @@
 
       <section class="boundary" id="control">
         <div class="boundary-intro section-pad">
-          <p class="section-index reveal">03 / Control</p>
-          <h2 class="reveal">The boundary<br />is the product.</h2>
+          <p class="section-index reveal">03 / Run controls</p>
+          <h2 class="reveal">Set the limits before<br />the agent starts.</h2>
           <p class="reveal">
-            A sandbox is only useful when the controls around it are explicit. Sanbox is building one policy surface
-            across identity, secrets, tools, network, runtime, and evidence.
+            Each run starts from an approved template with configured CPU, memory, and timeout limits. It gets its own
+            workspace, while Sanbox records tool calls, file changes, model usage, and status.
           </p>
         </div>
 
         <div class="boundary-stage reveal">
           <div class="boundary-toolbar">
-            <span>RUN POLICY / <b>engineering-default</b></span>
-            <span class="policy-state"><i></i> enforced</span>
+            <span>RUN / <b>8fc2 · opencode-runner</b></span>
+            <span class="policy-state"><i></i> running</span>
           </div>
           <div class="boundary-map">
             <div class="policy-rail">
-              <p>POLICY INPUT</p>
-              <div><span>Identity</span><b>run:8fc2</b></div>
-              <div><span>Template</span><b>opencode@17</b></div>
-              <div><span>Secrets</span><b>2 scoped</b></div>
-              <div><span>Egress</span><b>3 hosts</b></div>
-              <div><span>Retention</span><b>24 hours</b></div>
+              <p>RUN SETTINGS</p>
+              <div><span>Template</span><b>opencode-runner</b></div>
+              <div><span>Model</span><b>kimi-k2.7-code</b></div>
+              <div><span>CPU</span><b>2</b></div>
+              <div><span>Memory</span><b>4 GB</b></div>
+              <div><span>Timeout</span><b>15 min</b></div>
+              <div><span>Retention</span><b>24 h</b></div>
             </div>
 
             <div class="runtime-rings">
-              <div class="ring ring-network"><span>NETWORK ACL</span></div>
-              <div class="ring ring-runtime"><span>RUNTIME</span></div>
-              <div class="ring ring-workspace"><span>WORKSPACE</span></div>
+              <div class="ring ring-network"><span>ROOTLESS PODMAN</span></div>
+              <div class="ring ring-runtime"><span>READ-ONLY ROOTFS</span></div>
+              <div class="ring ring-workspace"><span>RETAINED WORKSPACE</span></div>
               <div class="ring-core">
-                <span class="agent-glyph" aria-hidden="true">A</span>
-                <strong>agent</strong>
-                <small>untrusted</small>
+                <span class="agent-glyph" aria-hidden="true">O</span>
+                <strong>OpenCode</strong>
+                <small>run 8fc2</small>
               </div>
-              <span class="ring-callout callout-one">api.openai.com <i>allow</i></span>
-              <span class="ring-callout callout-two">169.254.169.254 <i>deny</i></span>
-              <span class="ring-callout callout-three">workspace/output <i>write</i></span>
+              <span class="ring-callout callout-one">no-new-privileges <i>on</i></span>
+              <span class="ring-callout callout-two">capabilities <i>none</i></span>
+              <span class="ring-callout callout-three">/workspace/output <i>write</i></span>
             </div>
 
             <div class="event-rail">
-              <p>FLIGHT RECORDER</p>
+              <p>RUN EVENTS</p>
               <ol>
-                <li><time>00:08</time><span><i class="event-tool"></i><b>tool.started</b><small>rg "refreshToken" src/</small></span></li>
-                <li><time>00:11</time><span><i class="event-file"></i><b>file.changed</b><small>src/auth/session.ts</small></span></li>
-                <li><time>00:14</time><span><i class="event-net"></i><b>egress.allowed</b><small>api.openai.com:443</small></span></li>
-                <li><time>00:19</time><span><i class="event-secret"></i><b>secret.used</b><small>OPENAI_API_KEY · scoped</small></span></li>
-                <li><time>00:31</time><span><i class="event-done"></i><b>test.completed</b><small>19 passed</small></span></li>
+                <li><time>00:02</time><span><i class="event-input"></i><b>harness.input.ready</b><small>Input dossier extracted</small></span></li>
+                <li><time>00:05</time><span><i class="event-turn"></i><b>agent.turn.started</b><small>Agent turn started</small></span></li>
+                <li><time>00:11</time><span><i class="event-tool"></i><b>agent.tool.completed</b><small>rg "refreshToken" src/</small></span></li>
+                <li><time>00:16</time><span><i class="event-file"></i><b>agent.file.changed</b><small>Modified src/auth/session.ts</small></span></li>
+                <li><time>00:24</time><span><i class="event-usage"></i><b>agent.usage.updated</b><small>1,834 input · 412 output</small></span></li>
+                <li><time>00:31</time><span><i class="event-done"></i><b>run.completed</b><small>Sandbox run completed</small></span></li>
               </ol>
             </div>
           </div>
           <div class="boundary-footer">
-            <span>Intent → tool → process → file → network → artifact</span>
-            <span>one correlated trail</span>
+            <span>EVENTS / LOGS / OUTPUT FILES</span>
+            <span>WORKSPACE RETAINED FOR 24H</span>
           </div>
         </div>
       </section>
@@ -269,9 +271,9 @@
 
           <article class="capability-card capability-wide reveal">
             <div class="cap-top"><span class="cap-number">07</span></div>
-            <div class="trace-visual" aria-hidden="true"><span>intent</span><i></i><span>tool</span><i></i><span>process</span><i></i><span>file</span><i></i><span>network</span><i></i><span>artifact</span></div>
-            <h3>Agent flight recorder</h3>
-            <p>Correlate model usage and tool intent with the processes, files, network decisions, and artifacts that actually followed.</p>
+            <div class="trace-visual" aria-hidden="true"><span>session</span><i></i><span>tool</span><i></i><span>file</span><i></i><span>usage</span><i></i><span>output</span></div>
+            <h3>Run event stream</h3>
+            <p>Keep agent turns, tool calls, file changes, model usage, logs, and output references in the run record.</p>
           </article>
         </div>
       </section>
@@ -326,13 +328,13 @@
           </article>
           <article class="feature-summary-card">
             <span class="feature-summary-label">CONTROL</span>
-            <h3>Policy travels with the run.</h3>
-            <p>Apply destination allowlists, scoped secrets, and per-run resource policy before the agent starts.</p>
+            <h3>Fix the limits up front.</h3>
+            <p>Set CPU, memory, timeout, workspace retention, and approved runner defaults for each run.</p>
           </article>
           <article class="feature-summary-card">
             <span class="feature-summary-label">OBSERVE</span>
-            <h3>Watch intent become impact.</h3>
-            <p>Stream model usage, tool calls, file changes, network decisions, logs, and errors in one correlated trail.</p>
+            <h3>See what the runner did.</h3>
+            <p>Stream agent turns, tool calls, file changes, model usage, logs, and errors as they happen.</p>
           </article>
           <article class="feature-summary-card">
             <span class="feature-summary-label">RETAIN</span>

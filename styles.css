@@ -496,9 +496,11 @@
   .event-rail time { padding-top: 3px; color: #56615c; font-family: var(--mono); font-size: 7px; }
   .event-rail li > span { position: relative; display: flex; padding-left: 15px; flex-direction: column; }
   .event-rail li > span > i { position: absolute; top: 4px; left: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--cyan); }
+  .event-rail .event-input { background: var(--cyan); }
+  .event-rail .event-turn { background: var(--amber); }
+  .event-rail .event-tool { background: var(--green); }
   .event-rail .event-file { background: var(--amber); }
-  .event-rail .event-net { background: var(--green); }
-  .event-rail .event-secret { background: #a98df2; }
+  .event-rail .event-usage { background: #a98df2; }
   .event-rail .event-done { background: var(--mint); }
   .event-rail b { color: #c7ceca; font-family: var(--mono); font-size: 8px; font-weight: 500; }
   .event-rail small { margin-top: 3px; color: #626d67; font-family: var(--mono); font-size: 7px; }
