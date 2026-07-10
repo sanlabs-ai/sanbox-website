@@ -312,8 +312,7 @@
     text-transform: uppercase;
   }
   .world-topbar { top: 0; height: 44px; padding: 0 17px; border-bottom: 1px solid rgba(255,255,255,.07); }
-  .world-title { display: flex; align-items: center; gap: 8px; color: #d9ddda; }
-  .world-title i { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(55,200,135,.11); }
+  .world-count { margin-left: auto; }
   .world-caption { bottom: 0; height: 44px; padding: 0 17px; border-top: 1px solid rgba(255,255,255,.07); }
   .world-caption span:last-child { color: var(--mint); }
   .world-grid { position: absolute; inset: 44px 0; opacity: .5; }
