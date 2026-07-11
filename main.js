@@ -127,40 +127,60 @@
   const deploymentData = {
     eu: {
       note: "Dedicated deployment on EU infrastructure, operated with you.",
-      label: "EU / CUSTOMER BOUNDARY",
-      title: "Germany",
-      detail: "eu-central · dedicated host",
-      aria: "EU managed deployment diagram",
+      label: "EU MANAGED",
+      title: "Dedicated Sanbox deployment in the EU.",
+      summary: "The control plane, runners, and retained workspaces run on dedicated infrastructure in Germany.",
+      control: "Dedicated instance operated with your team",
+      runners: "Dedicated hosts with isolated workspaces",
+      data: "Run history, artifacts, and secrets remain in Germany",
+      network: "Default-deny egress with explicit destination grants",
+      aria: "EU managed deployment profile",
     },
     vpc: {
       note: "Deploy the control plane and runners inside your AWS, Azure, or GCP account.",
-      label: "YOUR CLOUD ACCOUNT",
-      title: "Private VPC",
-      detail: "your account · your network",
-      aria: "Customer VPC deployment diagram",
+      label: "YOUR VPC",
+      title: "Sanbox runs inside your cloud account.",
+      summary: "The control plane, runners, workspaces, and state stay inside a VPC owned and governed by your team.",
+      control: "Private deployment in your AWS, Azure, or GCP account",
+      runners: "Run inside your subnets on infrastructure you provision",
+      data: "Uses storage and databases inside your account",
+      network: "Your security controls plus per-run egress policies",
+      aria: "Customer VPC deployment profile",
     },
     metal: {
       note: "Keep workspaces and execution entirely on private infrastructure you operate.",
-      label: "ON-PREMISE BOUNDARY",
-      title: "Your datacenter",
-      detail: "private metal · local control",
-      aria: "On-premise deployment diagram",
+      label: "ON-PREM",
+      title: "Sanbox runs on infrastructure in your datacenter.",
+      summary: "The control plane, execution hosts, and retained data remain on private systems operated by your team.",
+      control: "Installed on your servers or private cluster",
+      runners: "Local execution hosts with isolated workspaces",
+      data: "Run data remains on storage you operate",
+      network: "Private routing and local egress enforcement",
+      aria: "On-premise deployment profile",
     },
   };
   const deployTabs = $$("[data-deploy]");
   const deployMap = $("[data-deploy-map]");
   const deployNote = $("[data-deploy-note]");
-  const deployLabel = $("[data-deploy-label]");
-  const locationTitle = $("[data-location-title]");
-  const locationDetail = $("[data-location-detail]");
+  const deployProfileLabel = $("[data-deploy-profile-label]");
+  const deployProfileTitle = $("[data-deploy-profile-title]");
+  const deployProfileSummary = $("[data-deploy-profile-summary]");
+  const deployControl = $("[data-deploy-control]");
+  const deployRunners = $("[data-deploy-runners]");
+  const deployData = $("[data-deploy-data]");
+  const deployNetwork = $("[data-deploy-network]");
   const renderDeployment = (key) => {
     const view = deploymentData[key];
     if (!view) return;
     deployTabs.forEach((tab) => tab.setAttribute("aria-selected", String(tab.dataset.deploy === key)));
     deployNote.textContent = view.note;
-    deployLabel.textContent = view.label;
-    locationTitle.textContent = view.title;
-    locationDetail.textContent = view.detail;
+    deployProfileLabel.textContent = view.label;
+    deployProfileTitle.textContent = view.title;
+    deployProfileSummary.textContent = view.summary;
+    deployControl.textContent = view.control;
+    deployRunners.textContent = view.runners;
+    deployData.textContent = view.data;
+    deployNetwork.textContent = view.network;
     deployMap.setAttribute("aria-label", view.aria);
   };
   deployTabs.forEach((tab) => tab.addEventListener("click", () => renderDeployment(tab.dataset.deploy)));

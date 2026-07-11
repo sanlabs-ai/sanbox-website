@@ -234,15 +234,19 @@
                 <span><i></i>financials</span><span><i></i>contracts</span><span><i></i>market</span><span><i></i>security</span>
               </div>
             </div>
-            <h3>Fan-out CLI</h3>
-            <p>Delegate parallel work from any coding agent, terminal, or CI job. Package only the files each run needs.</p>
+            <div class="capability-copy">
+              <h3>Fan-out CLI</h3>
+              <p>Delegate parallel work from any coding agent, terminal, or CI job. Package only the files each run needs.</p>
+            </div>
           </article>
 
           <article class="capability-card reveal">
             <div class="cap-top"><span class="cap-number">02</span></div>
             <div class="model-visual" aria-hidden="true"><span class="opencode-wordmark"><img src="assets/opencode-wordmark.svg" alt="" /></span><i>×</i><div><b>GPT 5.6</b><b>Kimi 2.7</b><b>Sonnet 5.0</b><b>GLM 5.2</b></div></div>
-            <h3>Model-selectable runners</h3>
-            <p>Choose from supported models in the OpenCode runner today, with a stable adapter contract for more agents and endpoints.</p>
+            <div class="capability-copy">
+              <h3>Model-selectable runners</h3>
+              <p>Choose from supported models in the OpenCode runner today, with a stable adapter contract for more agents and endpoints.</p>
+            </div>
           </article>
 
           <article class="capability-card reveal">
@@ -253,36 +257,46 @@
               <div><span>LIMITS</span><b>2 CPU · 4 GB · 15 min</b></div>
               <div><span>EGRESS</span><b>approved hosts</b></div>
             </div>
-            <h3>Run templates</h3>
-            <p>Register an approved OpenCode image, model, limits, and web-tool policy for repeatable agent work.</p>
+            <div class="capability-copy">
+              <h3>Run templates</h3>
+              <p>Register an approved OpenCode image, model, limits, and web-tool policy for repeatable agent work.</p>
+            </div>
           </article>
 
           <article class="capability-card capability-dark reveal">
             <div class="cap-top"><span class="cap-number">04</span></div>
             <div class="microvm-visual" aria-hidden="true"><div class="vm-host"><span><i></i><b>µVM</b></span><span><i></i><b>µVM</b></span><span><i></i><b>µVM</b></span></div><small>dedicated kernel boundaries</small></div>
-            <h3>MicroVM isolation</h3>
-            <p>A provider path from hardened containers to dedicated guest kernels for stronger multi-tenant isolation.</p>
+            <div class="capability-copy">
+              <h3>MicroVM isolation</h3>
+              <p>A provider path from hardened containers to dedicated guest kernels for stronger multi-tenant isolation.</p>
+            </div>
           </article>
 
           <article class="capability-card reveal">
             <div class="cap-top"><span class="cap-number">05</span></div>
             <div class="acl-visual" aria-hidden="true"><span class="acl-agent">A</span><i></i><div><b><em>✓</em> api.anthropic.com</b><b><em>✓</em> github.com</b><b class="denied"><em>×</em> private network</b></div></div>
-            <h3>Network ACL</h3>
-            <p>Default-deny egress with explicit destination grants, private-IP blocking, and decisions tied back to a run.</p>
+            <div class="capability-copy">
+              <h3>Network ACL</h3>
+              <p>Default-deny egress with explicit destination grants, private-IP blocking, and decisions tied back to a run.</p>
+            </div>
           </article>
 
           <article class="capability-card reveal">
             <div class="cap-top"><span class="cap-number">06</span></div>
             <div class="secret-visual" aria-hidden="true"><span>••••••••••••</span><i>→</i><b>run token<br /><small>ttl 00:23:41</small></b></div>
-            <h3>Scoped secrets</h3>
-            <p>Keep long-lived credentials outside the sandbox. Issue only the capability and lifetime a run requires.</p>
+            <div class="capability-copy">
+              <h3>Scoped secrets</h3>
+              <p>Keep long-lived credentials outside the sandbox. Issue only the capability and lifetime a run requires.</p>
+            </div>
           </article>
 
           <article class="capability-card capability-wide reveal">
             <div class="cap-top"><span class="cap-number">07</span></div>
             <div class="trace-visual" aria-hidden="true"><span>session</span><i></i><span>tool</span><i></i><span>file</span><i></i><span>usage</span><i></i><span>output</span></div>
-            <h3>Run event stream</h3>
-            <p>Keep agent turns, tool calls, file changes, model usage, logs, and output references in the run record.</p>
+            <div class="capability-copy">
+              <h3>Run event stream</h3>
+              <p>Keep agent turns, tool calls, file changes, model usage, logs, and output references in the run record.</p>
+            </div>
           </article>
         </div>
       </section>
@@ -300,35 +314,17 @@
           <p class="deploy-note" data-deploy-note>Dedicated deployment on EU infrastructure, operated with you.</p>
         </div>
 
-        <div class="sovereignty-map reveal" data-deploy-map aria-label="EU managed deployment diagram">
-          <div class="map-grid" aria-hidden="true"></div>
-          <div class="map-boundary">
-            <span class="boundary-label" data-deploy-label>EU / CUSTOMER BOUNDARY</span>
-            <div class="deployment-topology">
-              <section class="deploy-block deploy-access">
-                <span class="deploy-block-label">ACCESS</span>
-                <b>CLI · API · console</b>
-                <small>org-scoped authentication</small>
-              </section>
-              <i class="deploy-connector" aria-hidden="true"></i>
-              <section class="deploy-block deploy-control">
-                <span class="deploy-block-label"><span class="brand-symbol deploy-brand-mark" aria-hidden="true"></span> SANBOX CONTROL PLANE</span>
-                <b>API + scheduler</b>
-                <small>runs · policies · events</small>
-                <div class="deploy-services"><span>Postgres</span><span>Secrets</span><span>Artifacts</span></div>
-              </section>
-              <i class="deploy-connector" aria-hidden="true"></i>
-              <section class="deploy-block deploy-runners">
-                <span class="deploy-block-label">RUNNER POOL</span>
-                <div class="runner-list"><span><i></i>8fc2 · running</span><span><i></i>d20e · running</span><span><i></i>c9b7 · retained</span></div>
-                <small>isolated workspaces</small>
-              </section>
-            </div>
-            <div class="deployment-facts">
-              <p><span>LOCATION</span><b data-location-title>Germany</b><small data-location-detail>eu-central · dedicated host</small></p>
-              <p><span>EXECUTION</span><b>Rootless Podman</b><small>microVM provider path</small></p>
-              <p><span>NETWORK</span><b>Default deny</b><small>explicit egress grants</small></p>
-            </div>
+        <div class="sovereignty-panel reveal" data-deploy-map aria-label="EU managed deployment profile">
+          <div class="deployment-profile">
+            <span class="deployment-profile-label" data-deploy-profile-label>EU MANAGED</span>
+            <h3 data-deploy-profile-title>Dedicated Sanbox deployment in the EU.</h3>
+            <p data-deploy-profile-summary>The control plane, runners, and retained workspaces run on dedicated infrastructure in Germany.</p>
+            <dl>
+              <div><dt>CONTROL PLANE</dt><dd data-deploy-control>Dedicated instance operated with your team</dd></div>
+              <div><dt>RUNNERS</dt><dd data-deploy-runners>Dedicated hosts with isolated workspaces</dd></div>
+              <div><dt>DATA</dt><dd data-deploy-data>Run history, artifacts, and secrets remain in Germany</dd></div>
+              <div><dt>NETWORK</dt><dd data-deploy-network>Default-deny egress with explicit destination grants</dd></div>
+            </dl>
           </div>
         </div>
       </section>
