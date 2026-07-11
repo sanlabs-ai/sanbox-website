@@ -231,9 +231,17 @@
     mask: url("assets/sanlabs-symbol.svg") center / contain no-repeat;
   }
   .wordmark-mark { width: 28px; height: 31px; }
+  .wordmark-copy { display: grid; gap: 3px; }
   .wordmark-text { display: inline-flex; align-items: baseline; }
   .wordmark-san { color: var(--brand-orange); }
   .wordmark-box { color: inherit; }
+  .wordmark-byline {
+    color: var(--muted);
+    font-size: 8px;
+    font-weight: 650;
+    letter-spacing: .08em;
+    line-height: 1;
+  }
 
   .hero-copy { align-self: center; padding-bottom: 2vw; }
 
