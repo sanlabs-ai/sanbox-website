@@ -453,7 +453,11 @@
   .run-card-head { display: flex; align-items: center; justify-content: space-between; font-family: var(--mono); font-size: 11px; }
   .run-card-head b { color: #dfe5e1; font-weight: 550; }
   .run-card-head span { color: #6e7974; }
+  .run-card-head time { color: #6e7974; font-weight: 400; }
   .run-card p { margin-top: 8px; overflow: hidden; color: #9ba49f; font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+  .record-card { min-height: 68px; }
+  .record-card .run-card-head b { text-transform: uppercase; }
+  .record-card p { white-space: normal; }
   .mini-progress { height: 2px; margin-top: 10px; overflow: hidden; background: rgba(255,255,255,.06); }
   .mini-progress i { display: block; width: var(--p); height: 100%; background: var(--green); }
   .run-card.is-done .run-card-head span { color: var(--mint); background: transparent; }
@@ -760,6 +764,7 @@
     .agent-card { width: 112px; }
     .agent-head b { font-size: 11px; }
     .agent-foot { font-size: 11px; }
+    .run-stack { grid-template-columns: 1fr; }
     .runtime-rings { transform: scale(.9); transform-origin: center top; }
     .policy-rail { bottom: 6px; }
     .capability-card { padding: 18px; }

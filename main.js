@@ -37,24 +37,29 @@
         ["result", '<span class="success">●</span>  8fc2  auth audit         running  01:42'],
         ["result", '<span class="success">●</span>  4ad1  docs pass          running  00:39'],
         ["result", '<span class="success">●</span>  c9b7  test matrix        running  02:08'],
-        ["result", '<span class="success">✓</span>  d20e  dependency review  complete 01:17'],
+        ["result", '<span class="success">✓</span>  d20e  dependency review  completed 01:17'],
         ["result", ""],
         ["result", '<span class="info">input</span>  148 files · secret patterns excluded'],
       ],
-      stack: [
-        ["8fc2", "running", "Run authentication tests", "82%", false],
-        ["4ad1", "running", "Update API docs", "54%", false],
-        ["c9b7", "running", "Exercise test matrix", "68%", false],
-        ["d20e", "complete", "Review dependencies", "100%", true],
-      ],
+      panel: {
+        label: "runs",
+        meta: "3 running · 1 completed",
+        kind: "runs",
+        items: [
+          ["8fc2", "running", "Run authentication tests", "82%"],
+          ["4ad1", "running", "Update API docs", "54%"],
+          ["c9b7", "running", "Exercise test matrix", "68%"],
+          ["d20e", "completed", "Review dependencies", "100%"],
+        ],
+      },
     },
     watch: {
       lines: [
         ["comment", "# A normalized stream of agent activity."],
         ["command", '<span class="prompt">❯</span> sanbox runs watch 8fc2 <span class="flag">--view</span> compact'],
         ["result", ""],
-        ["result", '<span class="info">00:00</span>  queued       Run queued'],
-        ["result", '<span class="info">00:02</span>  staging      Workspace prepared'],
+        ["result", '<span class="info">00:00</span>  run          Run started'],
+        ["result", '<span class="info">00:02</span>  workspace    Workspace ready'],
         ["result", '<span class="info">00:04</span>  agent        OpenCode session started'],
         ["result", '<span class="info">00:13</span>  tool         rg "refreshToken" app/src'],
         ["result", '<span class="info">00:21</span>  file         modified app/src/auth/session.ts'],
@@ -64,12 +69,17 @@
         ["result", '<span class="info">01:39</span>  artifact     output/summary.md'],
         ["result", '<span class="info">01:40</span>  snapshot     filesystem + agent state saved'],
       ],
-      stack: [
-        ["intent", "observed", "Inspect authentication flow", "100%", true],
-        ["tool", "complete", "Run targeted tests", "100%", true],
-        ["file", "changed", "src/auth/session.ts", "100%", true],
-        ["agent", "working", "Preparing summary", "76%", false],
-      ],
+      panel: {
+        label: "activity",
+        meta: "run 8fc2 · running",
+        kind: "records",
+        items: [
+          ["tool call", "00:13", 'rg "refreshToken" app/src'],
+          ["file changed", "00:21", "app/src/auth/session.ts"],
+          ["tests", "01:21", "19 passed"],
+          ["snapshot", "01:40", "Filesystem + agent state saved"],
+        ],
+      },
     },
     collect: {
       lines: [
@@ -87,12 +97,17 @@
         ["result", '<span class="success">artifact</span>  output/summary.md     14.3 KB'],
         ["result", '<span class="success">artifact</span>  output/test-report.xml  8.7 KB'],
       ],
-      stack: [
-        ["input", "verified", "148 source files", "100%", true],
-        ["output", "retained", "summary.md", "100%", true],
-        ["output", "retained", "test-report.xml", "100%", true],
-        ["snapshot", "saved", "Filesystem + agent state", "100%", true],
-      ],
+      panel: {
+        label: "run contents",
+        meta: "run 8fc2 · completed",
+        kind: "records",
+        items: [
+          ["input bundle", "148 files", "Source files + run instructions"],
+          ["artifact", "14.3 KB", "output/summary.md"],
+          ["artifact", "8.7 KB", "output/test-report.xml"],
+          ["snapshot", "01:40", "Filesystem + agent state"],
+        ],
+      },
     },
   };
 
@@ -108,18 +123,28 @@
     terminalCode.innerHTML = view.lines
       .map(([type, content], index) => `<span class="code-line ${type}" style="--line:${index}">${content || "&nbsp;"}</span>`)
       .join("");
-    runStack.innerHTML = `
-      <div class="stack-label"><span>runs</span><span>live</span></div>
-      ${view.stack
-        .map(
-          ([id, state, task, progress, done]) => `
-            <article class="run-card${done ? " is-done" : ""}">
-              <div class="run-card-head"><b>${id}</b><span>${state}</span></div>
-              <p>${task}</p>
+    const panelCards = view.panel.items
+      .map(([label, meta, detail, progress]) => {
+        if (view.panel.kind === "runs") {
+          return `
+            <article class="run-card${meta === "completed" ? " is-done" : ""}">
+              <div class="run-card-head"><b>${label}</b><span>${meta}</span></div>
+              <p>${detail}</p>
               <div class="mini-progress"><i style="--p:${progress}"></i></div>
-            </article>`
-        )
-        .join("")}`;
+            </article>`;
+        }
+
+        return `
+          <article class="run-card record-card">
+            <div class="run-card-head"><b>${label}</b><time>${meta}</time></div>
+            <p>${detail}</p>
+          </article>`;
+      })
+      .join("");
+
+    runStack.innerHTML = `
+      <div class="stack-label"><span>${view.panel.label}</span><span>${view.panel.meta}</span></div>
+      ${panelCards}`;
   };
 
   terminalTabs.forEach((tab) => tab.addEventListener("click", () => renderTerminal(tab.dataset.terminalTab)));
