@@ -21,8 +21,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=signup-1" />
+    <script src="main.js?v=signup-1" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -377,9 +377,9 @@
         <div class="signup-copy reveal">
           <p class="section-index">GET STARTED</p>
           <h2>Sign up for Sanbox</h2>
-          <p>Tell us a little about your organization. We’ll set up your account and send login instructions within 24 hours.</p>
+          <p>Tell us where you’ll use Sanbox. We’ll set up your account and send login instructions within 24 hours.</p>
           <a class="text-link text-link-light" href="mailto:sales@sanlabs.ai?subject=Sanbox%20inquiry">
-            Prefer to talk first? Email us <span aria-hidden="true">↗</span>
+            Deployment or security question? Talk to us <span aria-hidden="true">↗</span>
           </a>
         </div>
 
@@ -416,17 +416,17 @@
                 type="text"
                 name="organization"
                 autocomplete="organization"
-                placeholder="Company or team name"
+                placeholder="Company or team"
                 maxlength="120"
                 required
               />
             </label>
 
             <label class="signup-field">
-              <span>What would you like to run? <b>Optional</b></span>
+              <span>What do you want to run? <b>Optional</b></span>
               <textarea
                 name="use_case"
-                placeholder="A sentence or two about the agents or workloads you have in mind."
+                placeholder="Example: review contracts and flag risky clauses."
                 maxlength="1000"
                 rows="4"
               ></textarea>
@@ -436,7 +436,7 @@
               <span data-signup-submit-label>Sign up</span>
               <i aria-hidden="true">↗</i>
             </button>
-            <p class="signup-privacy">We’ll only use these details to set up your account and contact you about Sanbox.</p>
+            <p class="signup-privacy">We’ll use these details only to set up your account and send login instructions.</p>
             <p class="signup-status" role="status" aria-live="polite" data-signup-status></p>
           </form>
 
