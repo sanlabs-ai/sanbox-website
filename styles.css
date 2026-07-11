@@ -277,16 +277,16 @@
     position: relative;
     min-height: 52px;
     min-width: 154px;
-    padding: 0 44px;
+    padding: 0 24px;
     align-items: center;
     justify-content: center;
-    gap: 0;
+    gap: 12px;
     border-radius: 2px;
     font-size: 14px;
     font-weight: 650;
     transition: transform 180ms ease, background 180ms ease, color 180ms ease;
   }
-  .button > .button-icon { position: absolute; right: 18px; }
+  .button > .button-icon { line-height: 1; transform: translateY(-1px); }
   .button:hover { transform: translateY(-2px); }
   .button-primary { background: var(--ink); color: white; }
   .button-primary:hover { background: var(--signal); }
