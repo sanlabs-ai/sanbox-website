@@ -20,13 +20,13 @@
     --muted: #69706c;
     --hairline: rgba(17, 24, 22, 0.14);
     --hairline-light: rgba(255, 255, 255, 0.13);
-    --graphite: #101715;
-    --graphite-2: #151e1b;
-    --graphite-3: #1d2824;
+    --graphite: #102019;
+    --graphite-2: #162a22;
+    --graphite-3: #1d352b;
     --cream: #f8f6f0;
-    --brand-orange: #f05a3e;
+    --brand-orange: #ea7835;
     --signal: var(--brand-orange);
-    --signal-dark: #c94731;
+    --signal-dark: #ad5526;
     --mint: #bafa6b;
     --green: #37c887;
     --cyan: #72cbd4;
@@ -235,6 +235,7 @@
   .wordmark-box { color: inherit; }
 
   .hero-copy { align-self: center; padding-bottom: 2vw; }
+  .hero-kicker { margin-bottom: 27px; color: var(--signal-dark); font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .12em; }
 
   .hero h1,
   .statement h2,
@@ -249,6 +250,7 @@
     line-height: .93;
   }
   .hero h1 { max-width: 770px; font-size: clamp(64px, 7.4vw, 118px); }
+  .hero h1 .hero-accent { color: var(--signal-dark); }
   .hero h1 em,
   .sovereignty-copy h2 em {
     color: var(--signal);
@@ -258,6 +260,10 @@
   }
   .hero-lede { max-width: 610px; margin-top: 34px; color: #46504c; font-size: clamp(17px, 1.45vw, 22px); line-height: 1.55; }
   .hero-actions { display: flex; margin-top: 39px; align-items: center; gap: 27px; }
+  .hero-install { display: grid; max-width: 610px; margin-top: 28px; padding: 14px 0; align-items: center; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); grid-template-columns: auto 1fr auto; gap: 14px; }
+  .hero-install span, .hero-install a { color: var(--muted); font-family: var(--mono); font-size: 8px; font-weight: 700; letter-spacing: .08em; }
+  .hero-install code { overflow: hidden; color: var(--ink-2); font-family: var(--mono); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+  .hero-install a:hover { color: var(--signal-dark); }
   .button {
     display: inline-flex;
     min-height: 52px;
@@ -606,6 +612,8 @@
   .closing-actions { display: flex; margin-top: 38px; align-items: center; gap: 28px; }
   .button-light { background: white; color: var(--ink); }
   .button-light:hover { background: var(--ink); color: white; }
+  .text-link-light { color: white; border-bottom-color: rgba(255,255,255,.42); }
+  .text-link-light:hover { border-bottom-color: white; }
 
   .footer-wordmark { gap: 9px; font-size: 20px; }
   .footer-wordmark .wordmark-mark { width: 24px; height: 27px; }
@@ -676,6 +684,8 @@
     .hero-actions { align-items: stretch; flex-direction: column; gap: 9px; }
     .button { width: 100%; justify-content: space-between; }
     .text-link { display: flex; justify-content: space-between; }
+    .hero-install { grid-template-columns: auto minmax(0, 1fr); }
+    .hero-install a { display: none; }
     .hero-world { min-height: 500px; margin-top: 55px; }
     .world-count { display: none; }
     .control-node { width: 105px; height: 105px; }
