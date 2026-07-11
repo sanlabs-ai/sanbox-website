@@ -262,7 +262,7 @@
   .hero-actions { display: flex; margin-top: 39px; align-items: center; gap: 27px; }
   .hero-install { display: grid; max-width: none; padding: 16px 18px; align-items: center; border: 1px solid var(--hairline); background: rgba(255,255,255,.22); grid-column: 1 / -1; grid-template-columns: minmax(120px, auto) 1fr; gap: 18px; }
   .hero-install span { color: var(--muted); font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
-  .hero-install code { overflow: hidden; color: var(--ink-2); font-family: var(--mono); font-size: 14px; font-variant-ligatures: none; letter-spacing: .01em; text-overflow: ellipsis; white-space: nowrap; }
+  .hero-install code { overflow: hidden; color: var(--ink-2); font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 15px; font-variant-ligatures: none; font-weight: 500; letter-spacing: 0; text-overflow: ellipsis; white-space: nowrap; }
   .button {
     display: inline-flex;
     min-height: 52px;
