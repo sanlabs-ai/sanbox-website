@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f4f4f1" />
+    <meta name="theme-color" content="#f4f2ed" />
     <meta name="color-scheme" content="light" />
     <title>Sanbox: Self-hosted sandboxes for AI agents</title>
     <meta
@@ -49,11 +49,6 @@
               <span aria-hidden="true">↗</span>
             </a>
             <a class="text-link" href="#orchestrate">See a complete run <span aria-hidden="true">↓</span></a>
-          </div>
-          <div class="hero-install reveal" style="--delay: 300ms">
-            <span>INSTALL</span>
-            <code>npm install -g @sanlabs/sanbox-cli</code>
-            <a href="https://www.npmjs.com/package/@sanlabs/sanbox-cli" target="_blank" rel="noreferrer">v0.0.1 ↗</a>
           </div>
         </div>
 
@@ -104,6 +99,12 @@
 
           <div class="world-caption"><span>Goal: evaluate an acquisition.</span><span>Four agents. Four isolated workspaces.</span></div>
         </div>
+
+        <div class="hero-install reveal" style="--delay: 260ms" aria-label="Install the Sanbox CLI">
+          <span>INSTALL WITH NPM</span>
+          <code>npm install -g @sanlabs/sanbox-cli</code>
+          <a href="https://www.npmjs.com/package/@sanlabs/sanbox-cli" target="_blank" rel="noreferrer">View package ↗</a>
+        </div>
       </section>
 
       <section class="statement section-pad" id="product">
@@ -123,11 +124,8 @@
         </div>
         <div class="principle-strip reveal">
           <div><span>01</span><b>Delegate</b><small>task + inputs</small></div>
-          <i>→</i>
           <div><span>02</span><b>Contain</b><small>runtime + policy</small></div>
-          <i>→</i>
           <div><span>03</span><b>Observe</b><small>events + effects</small></div>
-          <i>→</i>
           <div><span>04</span><b>Return</b><small>artifacts + evidence</small></div>
         </div>
       </section>
@@ -161,9 +159,9 @@
         </div>
 
         <div class="feature-notes reveal">
-          <div><span class="feature-glyph">↗</span><p><b>Agent-native onboarding</b><small><code>sanbox init</code> adds the right instructions for coding agents.</small></p></div>
-          <div><span class="feature-glyph">⌘</span><p><b>Portable run bundles</b><small>Inspect exactly which task and files leave your machine.</small></p></div>
-          <div><span class="feature-glyph">◫</span><p><b>Retained workspaces</b><small>Review results, continue a run, or collect artifacts later.</small></p></div>
+          <div><span class="feature-glyph">01</span><p><b>Agent-native onboarding</b><small><code>sanbox init</code> adds the right instructions for coding agents.</small></p></div>
+          <div><span class="feature-glyph">02</span><p><b>Portable run bundles</b><small>Inspect exactly which task and files leave your machine.</small></p></div>
+          <div><span class="feature-glyph">03</span><p><b>Retained workspaces</b><small>Review results, continue a run, or collect artifacts later.</small></p></div>
         </div>
       </section>
 
@@ -230,7 +228,12 @@
         <div class="capability-grid">
           <article class="capability-card capability-wide reveal">
             <div class="cap-top"><span class="cap-number">01</span></div>
-            <div class="fanout-visual" aria-hidden="true"><span class="source-node">1</span><i></i><b>4</b><i></i><b>8</b><i></i><b>16</b></div>
+            <div class="fanout-visual" aria-hidden="true">
+              <code><em>›</em> sanbox batch --tasks acquisition.json</code>
+              <div class="fanout-runs">
+                <span><i></i>financials</span><span><i></i>contracts</span><span><i></i>market</span><span><i></i>security</span>
+              </div>
+            </div>
             <h3>Fan-out CLI</h3>
             <p>Delegate parallel work from any coding agent, terminal, or CI job. Package only the files each run needs.</p>
           </article>
@@ -244,7 +247,12 @@
 
           <article class="capability-card reveal">
             <div class="cap-top"><span class="cap-number">03</span></div>
-            <div class="template-visual" aria-hidden="true"><div><span>01</span><b>base</b></div><div><span>02</span><b>tools</b></div><div><span>03</span><b>policy</b></div></div>
+            <div class="template-visual" aria-hidden="true">
+              <div><span>TEMPLATE</span><b>contract-review</b></div>
+              <div><span>RUNNER</span><b>OpenCode · GLM-OCR</b></div>
+              <div><span>LIMITS</span><b>2 CPU · 4 GB · 15 min</b></div>
+              <div><span>EGRESS</span><b>approved hosts</b></div>
+            </div>
             <h3>Run templates</h3>
             <p>Register an approved OpenCode image, model, limits, and web-tool policy for repeatable agent work.</p>
           </article>
@@ -296,11 +304,31 @@
           <div class="map-grid" aria-hidden="true"></div>
           <div class="map-boundary">
             <span class="boundary-label" data-deploy-label>EU / CUSTOMER BOUNDARY</span>
-            <div class="map-node map-user"><i>1</i><span><b>Your team</b><small>CLI · API · console</small></span></div>
-            <svg viewBox="0 0 500 310" preserveAspectRatio="none" aria-hidden="true"><path d="M126 153H236" /><path d="M294 153h80" /></svg>
-            <div class="map-core"><span class="brand-symbol map-brand-mark" aria-hidden="true"></span><b class="map-brand"><span class="wordmark-san">san</span><span class="wordmark-box">box</span></b><small>control plane</small></div>
-            <div class="map-node map-runners"><i>3</i><span><b>Runners</b><small>isolated · ephemeral</small></span></div>
-            <div class="map-location"><span class="pulse-ring"><i></i></span><p><b data-location-title>Germany</b><small data-location-detail>eu-central · dedicated host</small></p></div>
+            <div class="deployment-topology">
+              <section class="deploy-block deploy-access">
+                <span class="deploy-block-label">ACCESS</span>
+                <b>CLI · API · console</b>
+                <small>org-scoped authentication</small>
+              </section>
+              <i class="deploy-connector" aria-hidden="true"></i>
+              <section class="deploy-block deploy-control">
+                <span class="deploy-block-label"><span class="brand-symbol deploy-brand-mark" aria-hidden="true"></span> SANBOX CONTROL PLANE</span>
+                <b>API + scheduler</b>
+                <small>runs · policies · events</small>
+                <div class="deploy-services"><span>Postgres</span><span>Secrets</span><span>Artifacts</span></div>
+              </section>
+              <i class="deploy-connector" aria-hidden="true"></i>
+              <section class="deploy-block deploy-runners">
+                <span class="deploy-block-label">RUNNER POOL</span>
+                <div class="runner-list"><span><i></i>8fc2 · running</span><span><i></i>d20e · running</span><span><i></i>c9b7 · retained</span></div>
+                <small>isolated workspaces</small>
+              </section>
+            </div>
+            <div class="deployment-facts">
+              <p><span>LOCATION</span><b data-location-title>Germany</b><small data-location-detail>eu-central · dedicated host</small></p>
+              <p><span>EXECUTION</span><b>Rootless Podman</b><small>microVM provider path</small></p>
+              <p><span>NETWORK</span><b>Default deny</b><small>explicit egress grants</small></p>
+            </div>
           </div>
         </div>
       </section>
@@ -364,8 +392,6 @@
         <span class="brand-symbol wordmark-mark" aria-hidden="true"></span>
         <span class="wordmark-text"><span class="wordmark-san">san</span><span class="wordmark-box">box</span></span>
       </a>
-      <p>Public CLI for self-hosted agent execution.</p>
-      <div class="footer-links"><a href="https://www.npmjs.com/package/@sanlabs/sanbox-cli">npm ↗</a><a href="mailto:sales@sanlabs.ai">Contact</a></div>
       <span class="copyright">© 2026 Sanlabs GmbH</span>
     </footer>
   </body>
