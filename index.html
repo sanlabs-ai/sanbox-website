@@ -21,8 +21,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=signup-1" />
-    <script src="main.js?v=signup-1" defer></script>
+    <link rel="stylesheet" href="styles.css?v=signup-2" />
+    <script src="main.js?v=signup-2" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -386,16 +386,13 @@
         <div class="signup-card reveal" style="--delay: 120ms">
           <form
             class="signup-form"
-            action="__SIGNUP_FORM_ENDPOINT__"
+            action="https://sanbox.sanlabs.ai/v1/public/signup-requests"
             method="post"
             data-signup-form
-            data-endpoint="__SIGNUP_FORM_ENDPOINT__"
           >
-            <input type="hidden" name="_subject" value="New Sanbox signup" />
-            <input type="hidden" name="source" value="sanbox-website" />
             <label class="signup-trap" hidden>
               Leave this field empty
-              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+              <input type="text" name="website" tabindex="-1" autocomplete="off" />
             </label>
 
             <label class="signup-field">
@@ -417,6 +414,7 @@
                 name="organization"
                 autocomplete="organization"
                 placeholder="Company or team"
+                minlength="2"
                 maxlength="120"
                 required
               />
