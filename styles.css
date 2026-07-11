@@ -274,16 +274,19 @@
   .hero-install code { overflow: hidden; color: var(--ink-2); font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 15px; font-variant-ligatures: none; font-weight: 500; letter-spacing: 0; text-overflow: ellipsis; white-space: nowrap; }
   .button {
     display: inline-flex;
+    position: relative;
     min-height: 52px;
-    padding: 0 21px;
+    min-width: 154px;
+    padding: 0 44px;
     align-items: center;
     justify-content: center;
-    gap: 34px;
+    gap: 0;
     border-radius: 2px;
     font-size: 14px;
     font-weight: 650;
     transition: transform 180ms ease, background 180ms ease, color 180ms ease;
   }
+  .button > .button-icon { position: absolute; right: 18px; }
   .button:hover { transform: translateY(-2px); }
   .button-primary { background: var(--ink); color: white; }
   .button-primary:hover { background: var(--signal); }
@@ -674,7 +677,7 @@
     .hero h1 { font-size: clamp(54px, 16vw, 82px); line-height: .96; }
     .hero-lede { margin-top: 28px; font-size: 17px; }
     .hero-actions { align-items: stretch; flex-direction: column; gap: 9px; }
-    .button { width: 100%; justify-content: space-between; }
+    .button { width: 100%; justify-content: center; }
     .text-link { display: flex; justify-content: space-between; }
     .hero-install { grid-template-columns: auto minmax(0, 1fr); }
     .hero-world { min-height: 500px; margin-top: 55px; }
