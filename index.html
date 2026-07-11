@@ -8,13 +8,13 @@
     <title>Sanbox: Self-hosted sandboxes for AI agents</title>
     <meta
       name="description"
-      content="Run AI agents in isolated, self-hosted sandboxes. Start parallel runs from the CLI, stream activity, and retain each workspace for review."
+      content="Run AI agents in resumable MicroVM sandboxes with persistent filesystem snapshots, observable activity, and self-hosted deployment."
     />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Sanbox: Self-hosted sandboxes for AI agents" />
     <meta
       property="og:description"
-      content="Agent sandboxes with a public CLI, isolated workspaces, live run events, and self-hosted deployment."
+      content="Resumable agent sandboxes with MicroVM isolation, persistent filesystems, live run events, and self-hosted deployment."
     />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -39,9 +39,9 @@
             Run AI agents in<br />isolated <span class="hero-accent">sandboxes.</span>
           </h1>
           <p class="hero-lede reveal" style="--delay: 180ms">
-            Launch parallel runs from the CLI into separate workspaces. Choose the model and template, then set
-            resource, network, and secret access per run. Monitor tool activity and model usage, and retain the
-            workspace and outputs on infrastructure you control.
+            Launch parallel runs from the CLI. Each run gets an isolated MicroVM and persistent filesystem. Sanbox
+            records tool and model activity, then snapshots artifacts, agent state, and conversation history so the
+            same sandbox can be resumed later.
           </p>
           <div class="hero-actions reveal" style="--delay: 240ms">
             <a class="button button-primary" href="mailto:sales@sanlabs.ai?subject=Sanbox%20signup">
@@ -52,9 +52,9 @@
           </div>
         </div>
 
-        <div class="hero-world reveal" style="--delay: 180ms" aria-label="Four agents reviewing an acquisition in separate sandboxes">
+        <div class="hero-world reveal" style="--delay: 180ms" aria-label="Four agents reviewing an acquisition in separate resumable MicroVM sandboxes">
           <div class="world-topbar">
-            <span class="world-count">4 sandboxes running</span>
+            <span class="world-count">RUN GROUP / ACQUISITION REVIEW</span>
           </div>
           <div class="world-grid" aria-hidden="true">
             <span></span><span></span><span></span><span></span><span></span><span></span>
@@ -71,9 +71,7 @@
           </svg>
 
           <div class="control-node">
-            <span class="control-kicker">CONTROL PLANE</span>
-            <span class="brand-symbol control-brand-mark" aria-hidden="true"></span>
-            <span class="control-name"><span class="wordmark-san">san</span><span class="wordmark-box">box</span></span>
+            <span class="control-node-label">SANBOX<br />CONTROL PLANE</span>
           </div>
 
           <article class="agent-card agent-card-a">
@@ -97,13 +95,12 @@
             <div class="agent-foot"><span>8 controls checked</span><span>01:54</span></div>
           </article>
 
-          <div class="world-caption"><span>Goal: evaluate an acquisition.</span><span>Four agents. Four isolated workspaces.</span></div>
+          <div class="world-caption"><span>Goal: evaluate an acquisition.</span><span>Parallel runs. Resumable MicroVMs.</span></div>
         </div>
 
         <div class="hero-install reveal" style="--delay: 260ms" aria-label="Install the Sanbox CLI">
           <span>INSTALL WITH NPM</span>
           <code>npm install -g @sanlabs/sanbox-cli</code>
-          <a href="https://www.npmjs.com/package/@sanlabs/sanbox-cli" target="_blank" rel="noreferrer">View package ↗</a>
         </div>
       </section>
 
@@ -113,12 +110,12 @@
           <h2 class="reveal">A prompt is not a<br />security boundary.</h2>
           <div class="statement-copy reveal">
             <p>
-              Agents need files, tools, credentials, state, and network access. Sanbox packages those inputs into a
-              run with an approved template and configured resource limits.
+              Agents need files, tools, credentials, state, and network access. Sanbox places those inputs in a
+              dedicated MicroVM with configured resource and network limits.
             </p>
             <p>
-              The workspace, event stream, logs, and outputs stay attached to the run so you can inspect what happened
-              before using the result.
+              The filesystem is snapshotted with artifacts, agent state, and conversation history. Stop the sandbox,
+              inspect the run record, and resume it from the same state later.
             </p>
           </div>
         </div>
@@ -126,7 +123,7 @@
           <div><span>01</span><b>Delegate</b><small>task + inputs</small></div>
           <div><span>02</span><b>Contain</b><small>runtime + policy</small></div>
           <div><span>03</span><b>Observe</b><small>events + effects</small></div>
-          <div><span>04</span><b>Return</b><small>artifacts + evidence</small></div>
+          <div><span>04</span><b>Preserve</b><small>snapshot + artifacts</small></div>
         </div>
       </section>
 
@@ -161,24 +158,24 @@
         <div class="feature-notes reveal">
           <div><span class="feature-glyph">01</span><p><b>Agent-native onboarding</b><small><code>sanbox init</code> adds the right instructions for coding agents.</small></p></div>
           <div><span class="feature-glyph">02</span><p><b>Portable run bundles</b><small>Inspect exactly which task and files leave your machine.</small></p></div>
-          <div><span class="feature-glyph">03</span><p><b>Retained workspaces</b><small>Review results, continue a run, or collect artifacts later.</small></p></div>
+          <div><span class="feature-glyph">03</span><p><b>Resumable workspaces</b><small>Resume from a saved filesystem snapshot with agent state and conversation history intact.</small></p></div>
         </div>
       </section>
 
       <section class="boundary" id="control">
         <div class="boundary-intro section-pad">
-          <p class="section-index reveal">03 / Run controls</p>
-          <h2 class="reveal">Set the limits before<br />the agent starts.</h2>
+          <p class="section-index reveal">03 / Runtime</p>
+          <h2 class="reveal">A resumable MicroVM<br />for every run.</h2>
           <p class="reveal">
-            Each run starts from an approved template with configured CPU, memory, and timeout limits. It gets its own
-            workspace, while Sanbox records tool calls, file changes, model usage, and status.
+            Choose the runner, model, CPU, memory, timeout, and network policy. Sanbox snapshots the filesystem with
+            artifacts, agent state, and conversation history so a stopped run can resume where it left off.
           </p>
         </div>
 
         <div class="boundary-stage reveal">
           <div class="boundary-toolbar">
             <span>RUN / <b>8fc2 · opencode-runner</b></span>
-            <span class="policy-state"><i></i> running</span>
+            <span class="policy-state"><i></i> running · snapshots on</span>
           </div>
           <div class="boundary-map">
             <div class="policy-rail">
@@ -188,20 +185,21 @@
               <div><span>CPU</span><b>2</b></div>
               <div><span>Memory</span><b>4 GB</b></div>
               <div><span>Timeout</span><b>15 min</b></div>
-              <div><span>Retention</span><b>24 h</b></div>
+              <div><span>Filesystem</span><b>persistent</b></div>
+              <div><span>Resume</span><b>enabled</b></div>
             </div>
 
             <div class="runtime-rings">
-              <div class="ring ring-network"><span>ROOTLESS PODMAN</span></div>
-              <div class="ring ring-runtime"><span>READ-ONLY ROOTFS</span></div>
-              <div class="ring ring-workspace"><span>RETAINED WORKSPACE</span></div>
+              <div class="ring ring-network"><span>MICROVM ISOLATION</span></div>
+              <div class="ring ring-runtime"><span>CONTROLLED NETWORK</span></div>
+              <div class="ring ring-workspace"><span>PERSISTENT FILESYSTEM</span></div>
               <div class="ring-core">
                 <img class="ring-opencode-wordmark" src="assets/opencode-wordmark.svg" alt="" aria-hidden="true" />
                 <small>run 8fc2</small>
               </div>
-              <span class="ring-callout callout-one">no-new-privileges <i>on</i></span>
-              <span class="ring-callout callout-two">capabilities <i>none</i></span>
-              <span class="ring-callout callout-three">/workspace/output <i>write</i></span>
+              <span class="ring-callout callout-one">filesystem snapshot <i>saved</i></span>
+              <span class="ring-callout callout-two">resume point <i>ready</i></span>
+              <span class="ring-callout callout-three">artifacts + agent state <i>retained</i></span>
             </div>
 
             <div class="event-rail">
@@ -212,7 +210,7 @@
                 <li><time>00:11</time><span><i class="event-tool"></i><b>agent.tool.completed</b><small>rg "refreshToken" src/</small></span></li>
                 <li><time>00:16</time><span><i class="event-file"></i><b>agent.file.changed</b><small>Modified src/auth/session.ts</small></span></li>
                 <li><time>00:24</time><span><i class="event-usage"></i><b>agent.usage.updated</b><small>1,834 input · 412 output</small></span></li>
-                <li><time>00:31</time><span><i class="event-done"></i><b>run.completed</b><small>Sandbox run completed</small></span></li>
+                <li><time>00:31</time><span><i class="event-done"></i><b>snapshot.saved</b><small>Filesystem + agent state persisted</small></span></li>
               </ol>
             </div>
           </div>
@@ -268,7 +266,7 @@
             <div class="microvm-visual" aria-hidden="true"><div class="vm-host"><span><i></i><b>µVM</b></span><span><i></i><b>µVM</b></span><span><i></i><b>µVM</b></span></div><small>dedicated kernel boundaries</small></div>
             <div class="capability-copy">
               <h3>MicroVM isolation</h3>
-              <p>A provider path from hardened containers to dedicated guest kernels for stronger multi-tenant isolation.</p>
+              <p>Run each sandbox in its own MicroVM with a dedicated guest kernel and explicit CPU and memory limits.</p>
             </div>
           </article>
 
@@ -292,10 +290,10 @@
 
           <article class="capability-card capability-wide reveal">
             <div class="cap-top"><span class="cap-number">07</span></div>
-            <div class="trace-visual" aria-hidden="true"><span>session</span><i></i><span>tool</span><i></i><span>file</span><i></i><span>usage</span><i></i><span>output</span></div>
+            <div class="trace-visual" aria-hidden="true"><span>filesystem</span><i></i><span>artifacts</span><i></i><span>agent state</span><i></i><span>conversation</span><i></i><span>resume</span></div>
             <div class="capability-copy">
-              <h3>Run event stream</h3>
-              <p>Keep agent turns, tool calls, file changes, model usage, logs, and output references in the run record.</p>
+              <h3>Resumable filesystem snapshots</h3>
+              <p>Persist files, artifacts, agent state, and conversation history, then resume the same sandbox later.</p>
             </div>
           </article>
         </div>
@@ -305,7 +303,7 @@
         <div class="sovereignty-copy reveal">
           <p class="section-index">05 / Deployment</p>
           <h2>Deploy in your cloud or on your hardware.</h2>
-          <p>Keep the control plane, workspaces, credentials, and run history inside infrastructure your team operates.</p>
+          <p>Keep the control plane, MicroVM runners, filesystem snapshots, credentials, and run history inside infrastructure your team operates.</p>
           <div class="deploy-tabs" role="tablist" aria-label="Deployment options">
             <button type="button" role="tab" aria-selected="true" data-deploy="eu">EU managed</button>
             <button type="button" role="tab" aria-selected="false" data-deploy="vpc">Your VPC</button>
@@ -318,11 +316,11 @@
           <div class="deployment-profile">
             <span class="deployment-profile-label" data-deploy-profile-label>EU MANAGED</span>
             <h3 data-deploy-profile-title>Dedicated Sanbox deployment in the EU.</h3>
-            <p data-deploy-profile-summary>The control plane, runners, and retained workspaces run on dedicated infrastructure in Germany.</p>
+            <p data-deploy-profile-summary>The control plane, MicroVM runners, and persistent filesystem snapshots run on dedicated infrastructure in Germany.</p>
             <dl>
               <div><dt>CONTROL PLANE</dt><dd data-deploy-control>Dedicated instance operated with your team</dd></div>
-              <div><dt>RUNNERS</dt><dd data-deploy-runners>Dedicated hosts with isolated workspaces</dd></div>
-              <div><dt>DATA</dt><dd data-deploy-data>Run history, artifacts, and secrets remain in Germany</dd></div>
+              <div><dt>RUNNERS</dt><dd data-deploy-runners>Dedicated hosts running isolated MicroVMs</dd></div>
+              <div><dt>DATA</dt><dd data-deploy-data>Filesystem snapshots, artifacts, agent state, and conversation history remain in Germany</dd></div>
               <div><dt>NETWORK</dt><dd data-deploy-network>Default-deny egress with explicit destination grants</dd></div>
             </dl>
           </div>
@@ -333,7 +331,7 @@
         <div class="feature-summary-heading reveal">
           <p class="section-index">06 / Run lifecycle</p>
           <h2>One record for every run.</h2>
-          <p>Keep the input bundle, runner settings, event stream, outputs, and retained workspace under the same run ID.</p>
+          <p>Keep the input bundle, runner settings, event stream, filesystem snapshot, and outputs under the same run ID.</p>
         </div>
         <div class="feature-summary-grid reveal">
           <article class="feature-summary-card">
@@ -343,8 +341,8 @@
           </article>
           <article class="feature-summary-card">
             <span class="feature-summary-label">ISOLATE</span>
-            <h3>Separate workspace per run.</h3>
-            <p>Run each task in its own resource-bounded workspace, with a provider path from hardened containers to microVM-backed isolation.</p>
+            <h3>One MicroVM per run.</h3>
+            <p>Give each run a dedicated guest kernel, explicit resource limits, and its own persistent filesystem.</p>
           </article>
           <article class="feature-summary-card">
             <span class="feature-summary-label">CONFIGURE</span>
@@ -362,9 +360,9 @@
             <p>Stream agent turns, tool calls, file changes, model usage, logs, and errors as they happen.</p>
           </article>
           <article class="feature-summary-card">
-            <span class="feature-summary-label">RETAIN</span>
-            <h3>Inspect or continue completed work.</h3>
-            <p>Keep artifacts, logs, state, and the workspace available for inspection, continuation, or export.</p>
+            <span class="feature-summary-label">RESUME</span>
+            <h3>Resume from a saved snapshot.</h3>
+            <p>Restore the filesystem with artifacts, agent state, and conversation history, then continue the same sandbox.</p>
           </article>
         </div>
       </section>

@@ -250,7 +250,7 @@
     line-height: .93;
   }
   .hero h1 { max-width: 770px; font-size: clamp(64px, 7.4vw, 118px); }
-  .hero h1 .hero-accent { color: var(--signal-dark); }
+  .hero h1 .hero-accent { color: inherit; }
   .hero h1 em,
   .sovereignty-copy h2 em {
     color: var(--signal);
@@ -260,11 +260,9 @@
   }
   .hero-lede { max-width: 610px; margin-top: 34px; color: #46504c; font-size: clamp(17px, 1.45vw, 22px); line-height: 1.55; }
   .hero-actions { display: flex; margin-top: 39px; align-items: center; gap: 27px; }
-  .hero-install { display: grid; max-width: none; padding: 16px 18px; align-items: center; border: 1px solid var(--hairline); background: rgba(255,255,255,.22); grid-column: 1 / -1; grid-template-columns: minmax(120px, auto) 1fr auto; gap: 18px; }
-  .hero-install span, .hero-install a { color: var(--muted); font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
-  .hero-install code { overflow: hidden; color: var(--ink-2); font-family: var(--mono); font-size: 14px; text-overflow: ellipsis; white-space: nowrap; }
-  .hero-install a { justify-self: end; }
-  .hero-install a:hover { color: var(--signal-dark); }
+  .hero-install { display: grid; max-width: none; padding: 16px 18px; align-items: center; border: 1px solid var(--hairline); background: rgba(255,255,255,.22); grid-column: 1 / -1; grid-template-columns: minmax(120px, auto) 1fr; gap: 18px; }
+  .hero-install span { color: var(--muted); font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+  .hero-install code { overflow: hidden; color: var(--ink-2); font-family: var(--mono); font-size: 14px; font-variant-ligatures: none; letter-spacing: .01em; text-overflow: ellipsis; white-space: nowrap; }
   .button {
     display: inline-flex;
     min-height: 52px;
@@ -356,10 +354,7 @@
     box-shadow: 0 0 0 12px rgba(185,238,112,.025), 0 0 0 24px rgba(185,238,112,.015);
     transform: translate(-50%, -50%);
   }
-  .control-brand-mark { width: 32px; height: 35px; color: var(--brand-orange); }
-  .control-kicker { position: absolute; top: 20px; color: #707975; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; }
-  .control-name { position: absolute; bottom: 19px; color: var(--cream); font-family: var(--brand-sans); font-size: 14px; font-weight: 800; letter-spacing: -.07em; line-height: .9; }
-  .control-name .wordmark-san { color: var(--brand-orange); }
+  .control-node-label { color: var(--cream); font-family: var(--mono); font-size: 10px; font-weight: 650; letter-spacing: .08em; line-height: 1.45; text-align: center; }
 
   .agent-card {
     position: absolute;
@@ -669,13 +664,9 @@
     .button { width: 100%; justify-content: space-between; }
     .text-link { display: flex; justify-content: space-between; }
     .hero-install { grid-template-columns: auto minmax(0, 1fr); }
-    .hero-install a { display: none; }
     .hero-world { min-height: 500px; margin-top: 55px; }
     .world-count { display: none; }
     .control-node { width: 105px; height: 105px; }
-    .control-kicker { top: 16px; }
-    .control-name { bottom: 15px; }
-    .control-brand-mark { width: 26px; height: 29px; }
     .agent-card { width: 126px; padding: 9px; }
     .agent-card-a { top: 15%; left: 3%; }
     .agent-card-b { top: 14%; right: 3%; }
@@ -731,9 +722,9 @@
     .capability-card, .capability-wide { min-height: 350px; }
     .capability-card + .capability-card { margin-top: 10px; }
     .fanout-runs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .trace-visual { right: 2%; left: 2%; }
-    .trace-visual span { padding: 7px 5px; font-size: 11px; }
-    .trace-visual i { min-width: 5px; }
+    .trace-visual { top: 78px; right: 18px; left: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+    .trace-visual span { padding: 7px 5px; font-size: 11px; text-align: center; }
+    .trace-visual i { display: none; }
 
     .sovereignty-copy h2 { font-size: 55px; }
     .deploy-tabs { overflow-x: auto; }
