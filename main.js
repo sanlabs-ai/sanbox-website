@@ -37,7 +37,7 @@
         ["result", '<span class="success">●</span>  8fc2  auth audit         running  01:42'],
         ["result", '<span class="success">●</span>  4ad1  docs pass          running  00:39'],
         ["result", '<span class="success">●</span>  c9b7  test matrix        running  02:08'],
-        ["result", '<span class="success">✓</span>  d20e  dependency review  done     01:17'],
+        ["result", '<span class="success">✓</span>  d20e  dependency review  complete 01:17'],
         ["result", ""],
         ["result", '<span class="info">input</span>  148 files · secret patterns excluded'],
       ],
@@ -45,7 +45,7 @@
         ["8fc2", "running", "Run authentication tests", "82%", false],
         ["4ad1", "running", "Update API docs", "54%", false],
         ["c9b7", "running", "Exercise test matrix", "68%", false],
-        ["d20e", "done", "Review dependencies", "100%", true],
+        ["d20e", "complete", "Review dependencies", "100%", true],
       ],
     },
     watch: {
@@ -109,7 +109,7 @@
       .map(([type, content], index) => `<span class="code-line ${type}" style="--line:${index}">${content || "&nbsp;"}</span>`)
       .join("");
     runStack.innerHTML = `
-      <div class="stack-label"><span>run projection</span><span>live</span></div>
+      <div class="stack-label"><span>runs</span><span>live</span></div>
       ${view.stack
         .map(
           ([id, state, task, progress, done]) => `

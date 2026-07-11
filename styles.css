@@ -414,7 +414,6 @@
   .terminal-dots { display: flex; gap: 6px; }
   .terminal-dots i { width: 7px; height: 7px; border-radius: 50%; background: #3e4844; }
   .terminal-path { color: #7b8580; font-family: var(--mono); font-size: 12px; }
-  .terminal-path b { color: var(--mint); font-weight: 500; }
   .terminal-hint { display: inline-flex; align-items: center; justify-self: end; gap: 7px; color: #88928d; font-family: var(--mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
   .terminal-hint i { color: var(--mint); font-size: 11px; font-style: normal; }
   .terminal-tabs { display: grid; padding: 0 18px; border-bottom: 1px solid rgba(255,255,255,.07); grid-template-columns: repeat(3, 1fr); }
@@ -448,7 +447,8 @@
   .run-card p { margin-top: 8px; overflow: hidden; color: #9ba49f; font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
   .mini-progress { height: 2px; margin-top: 10px; overflow: hidden; background: rgba(255,255,255,.06); }
   .mini-progress i { display: block; width: var(--p); height: 100%; background: var(--green); }
-  .run-card.is-done .run-card-head span, .run-card.is-done .mini-progress i { color: var(--mint); background: var(--mint); }
+  .run-card.is-done .run-card-head span { color: var(--mint); background: transparent; }
+  .run-card.is-done .mini-progress i { background: var(--mint); }
   .terminal-status { display: flex; height: 40px; padding: 0 17px; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.07); color: #707b75; font-family: var(--mono); font-size: 11px; text-transform: uppercase; }
   .terminal-status span:first-child { display: flex; align-items: center; gap: 7px; }
   .terminal-status i { width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
@@ -694,7 +694,6 @@
     .run-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
     .stack-label { grid-column: 1 / -1; }
     .run-card + .run-card { margin-top: 0; }
-    .terminal-status span:last-child { display: none; }
     .feature-notes { display: block; }
     .feature-notes > div + div { margin-top: 20px; }
 
