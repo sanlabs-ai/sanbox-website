@@ -211,6 +211,65 @@
   };
   deployTabs.forEach((tab) => tab.addEventListener("click", () => renderDeployment(tab.dataset.deploy)));
 
+  const signupForm = $("[data-signup-form]");
+  const signupSubmit = $("[data-signup-submit]");
+  const signupSubmitLabel = $("[data-signup-submit-label]");
+  const signupStatus = $("[data-signup-status]");
+  const signupSuccess = $("[data-signup-success]");
+  const signupEmail = $("[data-signup-email]");
+
+  const validSignupEndpoint = (value) => {
+    try {
+      const url = new URL(value);
+      const formspree = url.protocol === "https:" && url.hostname === "formspree.io" && /^\/f\/[A-Za-z0-9]+$/.test(url.pathname);
+      const localPreview = ["localhost", "127.0.0.1"].includes(url.hostname);
+      return formspree || localPreview;
+    } catch {
+      return false;
+    }
+  };
+
+  signupForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!signupForm.reportValidity()) return;
+
+    const endpoint = signupForm.dataset.endpoint?.trim() || "";
+    if (!validSignupEndpoint(endpoint)) {
+      signupStatus.textContent = "Sign-up is not available yet. Please email sales@sanlabs.ai.";
+      signupStatus.dataset.state = "error";
+      return;
+    }
+
+    const formData = new FormData(signupForm);
+    formData.set("submitted_at", new Date().toISOString());
+    signupForm.setAttribute("aria-busy", "true");
+    signupSubmit.disabled = true;
+    signupSubmitLabel.textContent = "Signing up…";
+    signupStatus.textContent = "";
+    delete signupStatus.dataset.state;
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+      if (!response.ok) throw new Error(`Sign-up provider returned ${response.status}`);
+
+      signupEmail.textContent = String(formData.get("email") || "");
+      signupForm.hidden = true;
+      signupSuccess.hidden = false;
+      $("h3", signupSuccess)?.focus();
+    } catch {
+      signupStatus.textContent = "We couldn’t complete your sign-up. Please try again or email sales@sanlabs.ai.";
+      signupStatus.dataset.state = "error";
+      signupSubmit.disabled = false;
+      signupSubmitLabel.textContent = "Sign up";
+    } finally {
+      signupForm.removeAttribute("aria-busy");
+    }
+  });
+
   if (!prefersReducedMotion && terminal) {
     const cards = $$(".agent-card", terminal.closest("body"));
     let activeCard = 0;
