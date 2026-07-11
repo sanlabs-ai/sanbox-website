@@ -611,7 +611,7 @@
   .signup-copy h2 { max-width: 700px; margin-top: 31px; font-size: clamp(56px, 6.2vw, 94px); }
   .signup-copy > p:nth-of-type(2) { max-width: 580px; margin-top: 31px; color: rgba(255,255,255,.78); font-size: 18px; line-height: 1.65; }
   .signup-copy > .text-link { display: inline-flex; margin-top: 42px; }
-  .signup-card { position: relative; z-index: 2; width: 100%; max-width: 570px; justify-self: end; padding: clamp(28px, 4vw, 48px); border: 1px solid rgba(255,255,255,.13); background: #19211e; box-shadow: 0 30px 90px rgba(0,0,0,.22); }
+  .signup-card { position: relative; z-index: 2; width: 100%; max-width: 540px; justify-self: end; padding: clamp(28px, 4vw, 44px); border: 1px solid rgba(255,255,255,.13); background: #19211e; box-shadow: 0 30px 90px rgba(0,0,0,.22); }
   .signup-form { display: grid; gap: 22px; }
   .signup-field { display: grid; gap: 9px; }
   .signup-field > span { display: flex; justify-content: space-between; color: rgba(255,255,255,.76); font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
@@ -619,12 +619,12 @@
   .signup-field input,
   .signup-field textarea { width: 100%; border: 1px solid rgba(255,255,255,.17); border-radius: 2px; outline: 0; background: rgba(255,255,255,.055); color: white; font-family: var(--mono); font-size: 14px; transition: border-color 160ms ease, background 160ms ease; }
   .signup-field input { min-height: 52px; padding: 0 15px; }
-  .signup-field textarea { min-height: 118px; padding: 15px; line-height: 1.55; resize: vertical; }
+  .signup-field textarea { min-height: 108px; padding: 15px; line-height: 1.55; resize: vertical; }
   .signup-field input::placeholder,
   .signup-field textarea::placeholder { color: rgba(255,255,255,.34); }
   .signup-field input:focus,
   .signup-field textarea:focus { border-color: var(--mint); background: rgba(255,255,255,.075); }
-  .signup-submit { width: 100%; margin-top: 3px; border: 0; background: var(--mint); color: var(--ink); cursor: pointer; justify-content: space-between; }
+  .signup-submit { width: 100%; margin-top: 3px; border: 0; background: white; color: var(--ink); cursor: pointer; justify-content: center; gap: 10px; }
   .signup-submit i { font-style: normal; }
   .signup-submit:hover { background: white; }
   .signup-submit:disabled { cursor: wait; opacity: .66; transform: none; }
