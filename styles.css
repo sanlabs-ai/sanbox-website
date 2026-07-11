@@ -215,11 +215,11 @@
     align-items: center;
     gap: 10px;
     color: var(--ink);
-    font-family: var(--brand-sans);
+    font-family: "Lato", var(--brand-sans);
     font-size: 23px;
-    font-weight: 800;
+    font-weight: 900;
     font-variant-caps: normal;
-    letter-spacing: -.07em;
+    letter-spacing: -.045em;
     line-height: .9;
     text-transform: none;
   }
@@ -233,12 +233,13 @@
   .wordmark-mark { width: 28px; height: 31px; }
   .wordmark-copy { display: grid; gap: 3px; }
   .wordmark-text { display: inline-flex; align-items: baseline; }
-  .wordmark-san { color: var(--brand-orange); }
+  .wordmark-san { color: inherit; }
   .wordmark-box { color: inherit; }
   .wordmark-byline {
-    color: var(--muted);
+    color: inherit;
+    font-family: "Lato", var(--brand-sans);
     font-size: 8px;
-    font-weight: 650;
+    font-weight: 700;
     letter-spacing: .08em;
     line-height: 1;
   }
