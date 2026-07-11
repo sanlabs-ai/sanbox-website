@@ -218,30 +218,17 @@
   const signupSuccess = $("[data-signup-success]");
   const signupEmail = $("[data-signup-email]");
 
-  const validSignupEndpoint = (value) => {
-    try {
-      const url = new URL(value);
-      const formspree = url.protocol === "https:" && url.hostname === "formspree.io" && /^\/f\/[A-Za-z0-9]+$/.test(url.pathname);
-      const localPreview = ["localhost", "127.0.0.1"].includes(url.hostname);
-      return formspree || localPreview;
-    } catch {
-      return false;
-    }
-  };
-
   signupForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (!signupForm.reportValidity()) return;
 
-    const endpoint = signupForm.dataset.endpoint?.trim() || "";
-    if (!validSignupEndpoint(endpoint)) {
-      signupStatus.textContent = "Sign-up is not available yet. Please email sales@sanlabs.ai.";
-      signupStatus.dataset.state = "error";
-      return;
-    }
-
     const formData = new FormData(signupForm);
-    formData.set("submitted_at", new Date().toISOString());
+    const payload = {
+      email: String(formData.get("email") || "").trim(),
+      organization: String(formData.get("organization") || "").trim(),
+      use_case: String(formData.get("use_case") || "").trim(),
+      website: String(formData.get("website") || "").trim(),
+    };
     signupForm.setAttribute("aria-busy", "true");
     signupSubmit.disabled = true;
     signupSubmitLabel.textContent = "Signing up…";
@@ -249,14 +236,17 @@
     delete signupStatus.dataset.state;
 
     try {
-      const response = await fetch(endpoint, {
+      const response = await fetch(signupForm.action, {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: formData,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
       });
-      if (!response.ok) throw new Error(`Sign-up provider returned ${response.status}`);
+      if (response.status !== 202) throw new Error(`Sign-up request returned ${response.status}`);
 
-      signupEmail.textContent = String(formData.get("email") || "");
+      signupEmail.textContent = payload.email;
       signupForm.hidden = true;
       signupSuccess.hidden = false;
       $("h3", signupSuccess)?.focus();

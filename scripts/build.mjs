@@ -3,16 +3,6 @@ import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const output = resolve(root, "dist/server");
-const signupEndpoint = process.env.SIGNUP_FORM_ENDPOINT?.trim() || "";
-
-if (signupEndpoint) {
-  const url = new URL(signupEndpoint);
-  if (url.protocol !== "https:" || url.hostname !== "formspree.io" || !/^\/f\/[A-Za-z0-9]+$/.test(url.pathname)) {
-    throw new Error("SIGNUP_FORM_ENDPOINT must be a https://formspree.io/f/... URL.");
-  }
-} else {
-  console.warn("SIGNUP_FORM_ENDPOINT is unset; the signup form will show its email fallback.");
-}
 
 const files = [
   ["/", "index.html", "text/html; charset=utf-8"],
@@ -26,10 +16,7 @@ const files = [
 
 const assets = {};
 for (const [pathname, filename, contentType] of files) {
-  let body = await readFile(resolve(root, filename), "utf8");
-  if (filename === "index.html") {
-    body = body.replaceAll("__SIGNUP_FORM_ENDPOINT__", signupEndpoint);
-  }
+  const body = await readFile(resolve(root, filename), "utf8");
   assets[pathname] = {
     body,
     contentType,
