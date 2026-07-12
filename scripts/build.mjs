@@ -11,15 +11,19 @@ const files = [
   ["/main.js", "main.js", "text/javascript; charset=utf-8"],
   ["/assets/favicon.svg", "assets/favicon.svg", "image/svg+xml; charset=utf-8"],
   ["/assets/sanlabs-symbol.svg", "assets/sanlabs-symbol.svg", "image/svg+xml; charset=utf-8"],
-  ["/assets/opencode-wordmark.svg", "assets/opencode-wordmark.svg", "image/svg+xml; charset=utf-8"]
+  ["/assets/opencode-wordmark.svg", "assets/opencode-wordmark.svg", "image/svg+xml; charset=utf-8"],
+  ["/assets/og-image.svg", "assets/og-image.svg", "image/svg+xml; charset=utf-8"],
+  ["/assets/og-image.png", "assets/og-image.png", "image/png", "base64"]
 ];
 
 const assets = {};
-for (const [pathname, filename, contentType] of files) {
-  const body = await readFile(resolve(root, filename), "utf8");
+for (const [pathname, filename, contentType, encoding = "utf8"] of files) {
+  const source = await readFile(resolve(root, filename));
+  const body = source.toString(encoding);
   assets[pathname] = {
     body,
     contentType,
+    encoding,
     immutable: pathname.startsWith("/assets/")
   };
 }
@@ -39,7 +43,11 @@ export default {
       });
     }
 
-    return new Response(request.method === "HEAD" ? null : asset.body, {
+    const body = asset.encoding === "base64"
+      ? Uint8Array.from(atob(asset.body), (character) => character.charCodeAt(0))
+      : asset.body;
+
+    return new Response(request.method === "HEAD" ? null : body, {
       status: 200,
       headers: {
         "content-type": asset.contentType,
