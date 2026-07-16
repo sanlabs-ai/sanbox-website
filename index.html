@@ -238,67 +238,62 @@
               </div>
             </div>
             <div class="capability-copy">
-              <h3>Fan-out CLI</h3>
-              <p>Delegate parallel work from any coding agent, terminal, or CI job. Package only the files each run needs.</p>
+              <h3>Parallel execution</h3>
+              <p>CLI, CI, or coding agents · bounded concurrency · selected inputs</p>
             </div>
           </article>
 
           <article class="capability-card reveal">
             <div class="cap-top"><span class="cap-number">02</span></div>
-            <div class="model-visual" aria-hidden="true"><span class="opencode-wordmark"><img src="assets/opencode-wordmark.svg" alt="" /></span><i>×</i><div><b>GPT 5.6</b><b>Kimi 2.7</b><b>Sonnet 5.0</b><b>GLM 5.2</b></div></div>
-            <div class="capability-copy">
-              <h3>Model-selectable runners</h3>
-              <p>Choose from supported models in the OpenCode runner today, with a stable adapter contract for more agents and endpoints.</p>
-            </div>
-          </article>
-
-          <article class="capability-card reveal">
-            <div class="cap-top"><span class="cap-number">03</span></div>
             <div class="template-visual" aria-hidden="true">
-              <div><span>TEMPLATE</span><b>contract-review</b></div>
-              <div><span>RUNNER</span><b>OpenCode · GLM-OCR</b></div>
+              <div><span>HARNESS</span><b>OpenCode</b></div>
+              <div><span>MODEL</span><b>Claude Haiku 4.5</b></div>
               <div><span>LIMITS</span><b>2 CPU · 4 GB · 15 min</b></div>
-              <div><span>EGRESS</span><b>approved hosts</b></div>
+              <div><span>POLICY</span><b>restricted egress</b></div>
             </div>
             <div class="capability-copy">
-              <h3>Run templates</h3>
-              <p>Register an approved OpenCode image, model, limits, and web-tool policy for repeatable agent work.</p>
+              <h3>Runner templates</h3>
+              <p>Agent harness · model · CPU · memory · timeout</p>
             </div>
           </article>
 
           <article class="capability-card capability-dark reveal">
-            <div class="cap-top"><span class="cap-number">04</span></div>
+            <div class="cap-top"><span class="cap-number">03</span></div>
             <div class="microvm-visual" aria-hidden="true"><div class="vm-host"><span><i></i><b>µVM</b></span><span><i></i><b>µVM</b></span><span><i></i><b>µVM</b></span></div><small>dedicated kernel boundaries</small></div>
             <div class="capability-copy">
               <h3>MicroVM isolation</h3>
-              <p>Run each sandbox in its own MicroVM with a dedicated guest kernel and explicit CPU and memory limits.</p>
+              <p>Dedicated guest kernel · persistent filesystem · per-run limits</p>
+            </div>
+          </article>
+
+          <article class="capability-card reveal">
+            <div class="cap-top"><span class="cap-number">04</span></div>
+            <div class="acl-visual" aria-hidden="true"><span class="acl-agent">A</span><i></i><div><b><em>✓</em> approved hosts</b><b><em>✓</em> run token · ttl 00:23:41</b><b class="denied"><em>×</em> private network</b></div></div>
+            <div class="capability-copy">
+              <h3>Access control</h3>
+              <p>Network ACLs · private-IP blocking · scoped secrets</p>
             </div>
           </article>
 
           <article class="capability-card reveal">
             <div class="cap-top"><span class="cap-number">05</span></div>
-            <div class="acl-visual" aria-hidden="true"><span class="acl-agent">A</span><i></i><div><b><em>✓</em> api.anthropic.com</b><b><em>✓</em> github.com</b><b class="denied"><em>×</em> private network</b></div></div>
-            <div class="capability-copy">
-              <h3>Network ACL</h3>
-              <p>Default-deny egress with explicit destination grants, private-IP blocking, and decisions tied back to a run.</p>
+            <div class="budget-visual" aria-hidden="true">
+              <div><span>BUDGET</span><b>$0.05</b></div>
+              <div><span>SPEND</span><b>$0.0289</b></div>
+              <i><span></span></i>
             </div>
-          </article>
-
-          <article class="capability-card reveal">
-            <div class="cap-top"><span class="cap-number">06</span></div>
-            <div class="secret-visual" aria-hidden="true"><span>••••••••••••</span><i>→</i><b>run token<br /><small>ttl 00:23:41</small></b></div>
             <div class="capability-copy">
-              <h3>Scoped secrets</h3>
-              <p>Keep long-lived credentials outside the sandbox. Issue only the capability and lifetime a run requires.</p>
+              <h3>LLM cost control</h3>
+              <p>Per-run USD budget · live usage · final model spend</p>
             </div>
           </article>
 
           <article class="capability-card capability-wide reveal">
-            <div class="cap-top"><span class="cap-number">07</span></div>
+            <div class="cap-top"><span class="cap-number">06</span></div>
             <div class="trace-visual" aria-hidden="true"><span>filesystem</span><i></i><span>artifacts</span><i></i><span>agent state</span><i></i><span>conversation</span><i></i><span>resume</span></div>
             <div class="capability-copy">
-              <h3>Resumable filesystem snapshots</h3>
-              <p>Persist files, artifacts, agent state, and conversation history, then resume the same sandbox later.</p>
+              <h3>Resumable runs</h3>
+              <p>Tool activity · artifacts · agent state · conversation history</p>
             </div>
           </article>
         </div>
