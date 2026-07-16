@@ -32,7 +32,7 @@
     <meta name="twitter:image" content="https://sanbox.cloud/assets/og-image.png" />
     <meta name="twitter:image:alt" content="Sanbox by Sanlabs" />
     <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=features-1" />
+    <link rel="stylesheet" href="styles.css?v=layout-polish-1" />
     <script src="main.js?v=legal-1" defer></script>
   </head>
   <body>
@@ -63,7 +63,7 @@
           <div class="hero-actions reveal" style="--delay: 240ms">
             <a class="button button-primary" href="#signup">
               <span class="button-label">Sign up</span>
-              <span class="button-icon" aria-hidden="true">↓</span>
+              <span class="button-icon" aria-hidden="true">→</span>
             </a>
             <a class="text-link" href="#orchestrate">See a complete run <span aria-hidden="true">↓</span></a>
           </div>
@@ -122,7 +122,7 @@
       </section>
 
       <section class="statement section-pad" id="product">
-        <p class="section-index reveal">01 / Run boundary</p>
+        <p class="section-index section-label reveal">Run boundary</p>
         <div class="statement-grid">
           <h2 class="reveal">A prompt is not a<br />security boundary.</h2>
           <div class="statement-copy reveal">
@@ -140,7 +140,7 @@
 
       <section class="orchestrate section-pad" id="orchestrate">
         <div class="section-heading reveal">
-          <p class="section-index">02 / CLI</p>
+          <p class="section-index section-label">CLI</p>
           <h2>Start and watch parallel runs from the CLI.</h2>
           <p>Dispatch work from a terminal, CI job, Codex, or Claude Code. Detach and reattach without stopping the run.</p>
         </div>
@@ -168,8 +168,10 @@
 
       <section class="boundary" id="control">
         <div class="boundary-intro section-pad">
-          <p class="section-index reveal">03 / Runtime</p>
-          <h2 class="reveal">Resume every run<br />from a saved snapshot.</h2>
+          <div class="boundary-heading reveal">
+            <p class="section-index section-label">Runtime</p>
+            <h2>Resume every run<br />from a saved snapshot.</h2>
+          </div>
           <p class="reveal">
             Sanbox snapshots the filesystem together with artifacts, agent state, and conversation history. When the
             task changes, a new trigger arrives, or new information becomes available, resume the run from where the
@@ -180,7 +182,7 @@
         <div class="boundary-stage reveal">
           <div class="boundary-toolbar">
             <span>RUN / <b>8fc2 · opencode-runner</b></span>
-            <span class="policy-state"><i></i> running · snapshots on</span>
+            <span class="policy-state"><i></i> running</span>
           </div>
           <div class="boundary-map">
             <div class="policy-rail">
@@ -189,9 +191,7 @@
               <div><span>Model</span><b>kimi-k2.7-code</b></div>
               <div><span>CPU</span><b>2</b></div>
               <div><span>Memory</span><b>4 GB</b></div>
-              <div><span>Timeout</span><b>15 min</b></div>
-              <div><span>Filesystem</span><b>persistent</b></div>
-              <div><span>Resume</span><b>enabled</b></div>
+              <div><span>Timeout</span><b>8 hours</b></div>
             </div>
 
             <div class="runtime-rings">
@@ -202,9 +202,6 @@
                 <img class="ring-opencode-wordmark" src="assets/opencode-wordmark.svg" alt="" aria-hidden="true" />
                 <small>run 8fc2</small>
               </div>
-              <span class="ring-callout callout-one">filesystem snapshot <i>saved</i></span>
-              <span class="ring-callout callout-two">resume point <i>ready</i></span>
-              <span class="ring-callout callout-three">artifacts + agent state <i>retained</i></span>
             </div>
 
             <div class="event-rail">
@@ -224,13 +221,12 @@
 
       <section class="capabilities section-pad">
         <div class="capability-heading reveal">
-          <p class="section-index">04 / Features</p>
+          <p class="section-index section-label">Features</p>
           <h2>The essentials come built in.</h2>
         </div>
 
         <div class="capability-grid">
           <article class="capability-card reveal">
-            <div class="cap-top"><span class="cap-number">01</span></div>
             <div class="template-visual" aria-hidden="true">
               <div><span>INCLUDED</span><b>OpenCode</b></div>
               <div><span>MODELS</span><b>Major providers</b></div>
@@ -243,7 +239,6 @@
           </article>
 
           <article class="capability-card reveal">
-            <div class="cap-top"><span class="cap-number">02</span></div>
             <div class="acl-visual" aria-hidden="true"><span class="acl-agent">A</span><i></i><div><b><em>✓</em> kb.company.com</b><b><em>✓</em> crm.company.com</b><b class="denied"><em>×</em> all other hosts</b></div></div>
             <div class="capability-copy">
               <h3>Network ACLs</h3>
@@ -252,10 +247,9 @@
           </article>
 
           <article class="capability-card reveal">
-            <div class="cap-top"><span class="cap-number">03</span></div>
             <div class="budget-visual" aria-hidden="true">
-              <div><span>BUDGET</span><b>$0.05</b></div>
-              <div><span>SPEND</span><b>$0.0289</b></div>
+              <div><span>BUDGET</span><b>$25.00</b></div>
+              <div><span>SPEND</span><b>$11.42</b></div>
               <i><span></span></i>
             </div>
             <div class="capability-copy">
@@ -265,7 +259,6 @@
           </article>
 
           <article class="capability-card reveal">
-            <div class="cap-top"><span class="cap-number">04</span></div>
             <div class="trace-visual" aria-hidden="true"><span>filesystem</span><span>artifacts</span><span>conversation</span><span>agent state</span><span>resume</span></div>
             <div class="capability-copy">
               <h3>Agent-state snapshots</h3>
@@ -277,7 +270,7 @@
 
       <section class="sovereignty section-pad">
         <div class="sovereignty-copy reveal">
-          <p class="section-index">05 / Deployment</p>
+          <p class="section-index section-label">Deployment</p>
           <h2>Deploy in your cloud or on your hardware.</h2>
           <p>Keep the control plane, MicroVM runners, filesystem snapshots, credentials, and run history inside infrastructure your team operates.</p>
           <div class="deploy-tabs" role="tablist" aria-label="Deployment options">

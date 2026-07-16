@@ -89,6 +89,8 @@
     line-height: 1;
     text-transform: uppercase;
   }
+  .section-label { display: flex; align-items: center; gap: 10px; }
+  .section-label::before { width: 24px; height: 1px; flex: none; background: currentColor; content: ""; opacity: .72; }
 }
 
 @layer layout {
@@ -159,8 +161,8 @@
   .boundary-intro {
     display: grid;
     padding-bottom: 76px;
-    grid-template-columns: 1fr 1.2fr 1fr;
-    gap: 7vw;
+    grid-template-columns: minmax(0, 1.35fr) minmax(300px, .65fr);
+    gap: clamp(70px, 10vw, 160px);
     align-items: end;
   }
 
@@ -494,8 +496,8 @@
   .terminal-status span:first-child { display: flex; align-items: center; gap: 7px; }
   .terminal-status i { width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
 
-  .boundary-intro .section-index { color: var(--mint); align-self: start; }
-  .boundary-intro h2 { font-size: clamp(54px, 6.1vw, 91px); }
+  .boundary-intro .section-index { color: var(--mint); }
+  .boundary-intro h2 { margin-top: 30px; font-size: clamp(54px, 6.1vw, 91px); }
   .boundary-intro > p:last-child { color: #9ba59f; font-size: 17px; line-height: 1.6; }
   .boundary-stage { width: var(--page); margin: 0 auto; overflow: hidden; border: 1px solid rgba(255,255,255,.12); border-radius: 4px; background: #0c1210; }
   .boundary-toolbar { display: flex; height: 50px; padding: 0 18px; align-items: center; justify-content: space-between; color: #818b86; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; }
@@ -521,13 +523,6 @@
   .ring-core { position: absolute; top: 50%; left: 50%; display: flex; width: 112px; height: 112px; align-items: center; justify-content: center; border-radius: 50%; background: var(--paper); color: var(--ink); flex-direction: column; transform: translate(-50%, -50%); }
   .ring-opencode-wordmark { box-sizing: content-box; width: 68px; height: auto; padding: 8px 6px; border-radius: 2px; background: var(--ink); }
   .ring-core small { margin-top: 7px; color: var(--muted); font-family: var(--mono); font-size: 11px; text-transform: uppercase; }
-  .ring-callout { position: absolute; display: flex; padding: 8px 10px; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.09); background: #121a17; color: #a0aaa5; font-family: var(--mono); font-size: 11px; }
-  .ring-callout i { font-style: normal; }
-  .callout-one { top: 20%; left: 6%; }
-  .callout-one i, .callout-three i { color: var(--green); }
-  .callout-two { right: 5%; bottom: 21%; }
-  .callout-two i { color: var(--red); }
-  .callout-three { bottom: 23%; left: 20%; }
   .event-rail ol { margin: 0; padding: 0; list-style: none; }
   .event-rail li { display: grid; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,.055); grid-template-columns: 44px 1fr; }
   .event-rail time { padding-top: 3px; color: #6f7a74; font-family: var(--mono); font-size: 11px; }
@@ -546,8 +541,6 @@
   .capability-heading h2 { margin-top: 32px; font-size: clamp(48px, 5vw, 72px); }
   .capability-card { position: relative; min-height: 370px; padding: 22px; overflow: hidden; border: 1px solid var(--hairline); background: rgba(255,255,255,.17); }
   .capability-card:hover { border-color: rgba(17,21,20,.3); }
-  .cap-top { display: flex; align-items: center; justify-content: space-between; }
-  .cap-number { color: var(--muted); font-family: var(--mono); font-size: 12px; }
   .capability-copy { position: absolute; right: 22px; bottom: 20px; left: 22px; }
   .capability-copy h3 { font-size: 20px; font-weight: 620; letter-spacing: -.035em; }
   .capability-copy p { max-width: 640px; margin-top: 7px; color: var(--muted); font-size: 15px; line-height: 1.5; }
@@ -568,7 +561,7 @@
   .budget-visual div span { color: var(--signal-dark); font-size: 10px; letter-spacing: .06em; }
   .budget-visual div b { font-size: 12px; font-weight: 500; }
   .budget-visual > i { height: 4px; margin-top: 8px; overflow: hidden; background: var(--paper-3); grid-column: 1 / -1; }
-  .budget-visual > i span { display: block; width: 57.8%; height: 100%; background: var(--green); }
+  .budget-visual > i span { display: block; width: 45.68%; height: 100%; background: var(--green); }
   .trace-visual { position: absolute; top: 70px; right: 22px; left: 22px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
   .trace-visual span { padding: 9px 8px; border: 1px solid var(--hairline); font-family: var(--mono); font-size: 11px; text-align: center; }
   .trace-visual span:last-child { border-color: var(--signal); color: var(--signal-dark); grid-column: 1 / -1; }
@@ -733,8 +726,7 @@
     .orchestrate { display: block; }
     .section-heading, .capability-heading { position: static; max-width: 650px; margin-bottom: 55px; }
     .terminal-shell { width: 100%; }
-    .boundary-intro { grid-template-columns: .7fr 1.3fr; }
-    .boundary-intro > p:last-child { margin-top: 34px; grid-column: 2; }
+    .boundary-intro { grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr); gap: 55px; }
     .boundary-map { grid-template-columns: 170px 1fr; }
     .event-rail { display: none; }
     .runtime-rings { min-width: 520px; }
@@ -793,7 +785,7 @@
     .run-card + .run-card { margin-top: 0; }
 
     .boundary-intro { display: block; padding-bottom: 50px; }
-    .boundary-intro h2 { margin-top: 32px; font-size: 54px; }
+    .boundary-intro h2 { margin-top: 28px; font-size: 54px; }
     .boundary-intro > p:last-child { margin-top: 31px; font-size: 15px; }
     .boundary-stage { width: 100%; border-right: 0; border-left: 0; border-radius: 0; }
     .boundary-toolbar { padding: 0 14px; }
@@ -807,11 +799,6 @@
     .ring-runtime { width: 290px; height: 290px; }
     .ring-workspace { width: 190px; height: 190px; }
     .ring-core { width: 94px; height: 94px; }
-    .ring-callout { font-size: 11px; }
-    .callout-one { top: 17%; left: 2%; }
-    .callout-two { right: 2%; bottom: 20%; }
-    .callout-three { bottom: 21%; left: 8%; }
-
     .capability-grid { display: block; }
     .capability-card { min-height: 350px; }
     .capability-card + .capability-card { margin-top: 10px; }
