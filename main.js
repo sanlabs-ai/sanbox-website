@@ -217,6 +217,7 @@
   const signupStatus = $("[data-signup-status]");
   const signupSuccess = $("[data-signup-success]");
   const signupEmail = $("[data-signup-email]");
+  const signupRequestTimeoutMs = 15_000;
 
   signupForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -235,6 +236,9 @@
     signupStatus.textContent = "";
     delete signupStatus.dataset.state;
 
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), signupRequestTimeoutMs);
+
     try {
       const response = await fetch(signupForm.action, {
         method: "POST",
@@ -243,6 +247,7 @@
           "Content-Type": "application/json",
         },
         body: JSON.stringify(payload),
+        signal: controller.signal,
       });
       if (response.status !== 202) throw new Error(`Sign-up request returned ${response.status}`);
 
@@ -250,12 +255,16 @@
       signupForm.hidden = true;
       signupSuccess.hidden = false;
       $("h3", signupSuccess)?.focus();
-    } catch {
-      signupStatus.textContent = "We couldn’t complete your sign-up. Please try again or email sales@sanlabs.ai.";
+    } catch (error) {
+      const timedOut = error instanceof DOMException && error.name === "AbortError";
+      signupStatus.textContent = timedOut
+        ? "Sign-up timed out. Please try again or email sales@sanlabs.ai."
+        : "We couldn’t complete your sign-up. Please try again or email sales@sanlabs.ai.";
       signupStatus.dataset.state = "error";
       signupSubmit.disabled = false;
       signupSubmitLabel.textContent = "Sign up";
     } finally {
+      window.clearTimeout(timeoutId);
       signupForm.removeAttribute("aria-busy");
     }
   });
