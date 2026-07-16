@@ -648,13 +648,15 @@
   .text-link-light { color: white; border-bottom-color: rgba(255,255,255,.42); }
   .text-link-light:hover { border-bottom-color: white; }
 
-  .footer-links {
+  .site-footer .footer-links,
+  .site-footer .copyright {
     color: var(--muted);
+    font-family: var(--mono);
+    font-size: 11px;
     font-weight: 400;
     letter-spacing: 0;
     text-transform: none;
   }
-  .copyright { color: var(--muted); font-family: var(--mono); font-size: 11px; }
 
   .legal-article > .section-index { margin-bottom: 28px; }
   .legal-article h1 {
