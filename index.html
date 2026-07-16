@@ -32,7 +32,7 @@
     <meta name="twitter:image" content="https://sanbox.cloud/assets/og-image.png" />
     <meta name="twitter:image:alt" content="Sanbox by Sanlabs" />
     <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=footer-1" />
+    <link rel="stylesheet" href="styles.css?v=features-1" />
     <script src="main.js?v=legal-1" defer></script>
   </head>
   <body>
@@ -224,59 +224,35 @@
 
       <section class="capabilities section-pad">
         <div class="capability-heading reveal">
-          <p class="section-index">04 / Capabilities</p>
-          <h2>What Sanbox controls.</h2>
+          <p class="section-index">04 / Features</p>
+          <h2>The essentials come built in.</h2>
         </div>
 
         <div class="capability-grid">
-          <article class="capability-card capability-wide reveal">
+          <article class="capability-card reveal">
             <div class="cap-top"><span class="cap-number">01</span></div>
-            <div class="fanout-visual" aria-hidden="true">
-              <code><em>›</em> sanbox batch --tasks acquisition.json</code>
-              <div class="fanout-runs">
-                <span><i></i>financials</span><span><i></i>contracts</span><span><i></i>market</span><span><i></i>security</span>
-              </div>
+            <div class="template-visual" aria-hidden="true">
+              <div><span>INCLUDED</span><b>OpenCode</b></div>
+              <div><span>MODELS</span><b>Major providers</b></div>
+              <div><span>CUSTOM</span><b>Your own harness</b></div>
             </div>
             <div class="capability-copy">
-              <h3>Parallel execution</h3>
-              <p>CLI, CI, or coding agents · bounded concurrency · selected inputs</p>
+              <h3>OpenCode included</h3>
+              <p>Run agents with OpenCode, a powerful open-source harness that supports most major model providers. Or bring your own custom harness.</p>
             </div>
           </article>
 
           <article class="capability-card reveal">
             <div class="cap-top"><span class="cap-number">02</span></div>
-            <div class="template-visual" aria-hidden="true">
-              <div><span>HARNESS</span><b>OpenCode</b></div>
-              <div><span>MODEL</span><b>Claude Haiku 4.5</b></div>
-              <div><span>LIMITS</span><b>2 CPU · 4 GB · 15 min</b></div>
-              <div><span>POLICY</span><b>restricted egress</b></div>
-            </div>
+            <div class="acl-visual" aria-hidden="true"><span class="acl-agent">A</span><i></i><div><b><em>✓</em> kb.company.com</b><b><em>✓</em> crm.company.com</b><b class="denied"><em>×</em> all other hosts</b></div></div>
             <div class="capability-copy">
-              <h3>Runner templates</h3>
-              <p>Agent harness · model · CPU · memory · timeout</p>
+              <h3>Network ACLs</h3>
+              <p>Allow each sandbox to connect only to approved hosts, such as your internal knowledge base or CRM, and block all other network access.</p>
             </div>
           </article>
 
-          <article class="capability-card capability-dark reveal">
+          <article class="capability-card reveal">
             <div class="cap-top"><span class="cap-number">03</span></div>
-            <div class="microvm-visual" aria-hidden="true"><div class="vm-host"><span><i></i><b>µVM</b></span><span><i></i><b>µVM</b></span><span><i></i><b>µVM</b></span></div><small>dedicated kernel boundaries</small></div>
-            <div class="capability-copy">
-              <h3>MicroVM isolation</h3>
-              <p>Dedicated guest kernel · persistent filesystem · per-run limits</p>
-            </div>
-          </article>
-
-          <article class="capability-card reveal">
-            <div class="cap-top"><span class="cap-number">04</span></div>
-            <div class="acl-visual" aria-hidden="true"><span class="acl-agent">A</span><i></i><div><b><em>✓</em> approved hosts</b><b><em>✓</em> run token · ttl 00:23:41</b><b class="denied"><em>×</em> private network</b></div></div>
-            <div class="capability-copy">
-              <h3>Access control</h3>
-              <p>Network ACLs · private-IP blocking · scoped secrets</p>
-            </div>
-          </article>
-
-          <article class="capability-card reveal">
-            <div class="cap-top"><span class="cap-number">05</span></div>
             <div class="budget-visual" aria-hidden="true">
               <div><span>BUDGET</span><b>$0.05</b></div>
               <div><span>SPEND</span><b>$0.0289</b></div>
@@ -284,16 +260,16 @@
             </div>
             <div class="capability-copy">
               <h3>LLM cost control</h3>
-              <p>Per-run USD budget · live usage · final model spend</p>
+              <p>Track model spend in real time and set a budget limit for each sandbox.</p>
             </div>
           </article>
 
-          <article class="capability-card capability-wide reveal">
-            <div class="cap-top"><span class="cap-number">06</span></div>
-            <div class="trace-visual" aria-hidden="true"><span>filesystem</span><i></i><span>artifacts</span><i></i><span>agent state</span><i></i><span>conversation</span><i></i><span>resume</span></div>
+          <article class="capability-card reveal">
+            <div class="cap-top"><span class="cap-number">04</span></div>
+            <div class="trace-visual" aria-hidden="true"><span>filesystem</span><span>artifacts</span><span>conversation</span><span>agent state</span><span>resume</span></div>
             <div class="capability-copy">
-              <h3>Resumable runs</h3>
-              <p>Tool activity · artifacts · agent state · conversation history</p>
+              <h3>Agent-state snapshots</h3>
+              <p>Preserve the filesystem, artifacts, conversation, and agent state. Resume when a task changes, a new trigger fires, or more information arrives.</p>
             </div>
           </article>
         </div>

@@ -546,33 +546,17 @@
   .capability-heading h2 { margin-top: 32px; font-size: clamp(48px, 5vw, 72px); }
   .capability-card { position: relative; min-height: 370px; padding: 22px; overflow: hidden; border: 1px solid var(--hairline); background: rgba(255,255,255,.17); }
   .capability-card:hover { border-color: rgba(17,21,20,.3); }
-  .capability-wide { grid-column: 1 / -1; min-height: 330px; }
-  .capability-dark { border-color: transparent; background: var(--graphite); color: white; }
   .cap-top { display: flex; align-items: center; justify-content: space-between; }
   .cap-number { color: var(--muted); font-family: var(--mono); font-size: 12px; }
   .capability-copy { position: absolute; right: 22px; bottom: 20px; left: 22px; }
   .capability-copy h3 { font-size: 20px; font-weight: 620; letter-spacing: -.035em; }
   .capability-copy p { max-width: 640px; margin-top: 7px; color: var(--muted); font-size: 15px; line-height: 1.5; }
-  .capability-dark .capability-copy p { color: #7f8984; }
-  .fanout-visual { position: absolute; top: 68px; right: 22px; left: 22px; display: grid; gap: 8px; }
-  .fanout-visual code { display: block; padding: 11px 13px; border-radius: 2px; background: var(--ink); color: var(--cream); font-family: var(--mono); font-size: 12px; }
-  .fanout-visual code em { margin-right: 7px; color: var(--mint); font-style: normal; }
-  .fanout-runs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
-  .fanout-runs span { display: flex; min-width: 0; padding: 9px 10px; align-items: center; gap: 7px; border: 1px solid var(--hairline); font-family: var(--mono); font-size: 11px; }
-  .fanout-runs i { width: 6px; height: 6px; flex: none; border-radius: 50%; background: var(--green); }
-  .trace-visual { position: absolute; top: 104px; right: 8%; left: 8%; display: flex; align-items: center; justify-content: center; gap: 0; }
   .template-visual { position: absolute; top: 70px; right: 22px; left: 22px; border: 1px solid var(--hairline); background: var(--paper); }
   .template-visual div { display: grid; min-height: 33px; padding: 7px 10px; align-items: center; grid-template-columns: 70px 1fr; gap: 10px; }
   .template-visual div + div { border-top: 1px solid var(--hairline); }
   .template-visual span { color: var(--signal-dark); font-family: var(--mono); font-size: 11px; }
   .template-visual b { overflow: hidden; font-family: var(--mono); font-size: 11px; font-weight: 500; text-align: right; text-overflow: ellipsis; white-space: nowrap; }
-  .microvm-visual { position: absolute; top: 79px; right: 22px; left: 22px; }
-  .vm-host { display: grid; padding: 11px; border: 1px solid rgba(255,255,255,.12); grid-template-columns: repeat(3, 1fr); gap: 6px; }
-  .vm-host > span { display: grid; height: 68px; place-items: center; border: 1px solid rgba(185,238,112,.2); background: rgba(185,238,112,.035); }
-  .vm-host i { width: 10px; height: 10px; border: 1px solid var(--mint); border-radius: 50%; }
-  .vm-host b { color: #a7b1ac; font-family: var(--mono); font-size: 11px; font-weight: 500; }
-  .microvm-visual > small { display: block; margin-top: 9px; color: #76817b; font-family: var(--mono); font-size: 11px; text-align: center; }
-  .acl-visual { position: absolute; top: 90px; right: 22px; left: 22px; display: grid; grid-template-columns: 36px 30px 1fr; align-items: center; }
+  .acl-visual { position: absolute; top: 78px; right: 22px; left: 22px; display: grid; grid-template-columns: 36px 30px 1fr; align-items: center; }
   .acl-agent { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 50%; background: var(--ink); color: var(--mint); font-family: var(--mono); font-size: 11px; }
   .acl-visual > i { height: 1px; background: var(--hairline); }
   .acl-visual > div { display: flex; flex-direction: column; gap: 5px; }
@@ -585,9 +569,9 @@
   .budget-visual div b { font-size: 12px; font-weight: 500; }
   .budget-visual > i { height: 4px; margin-top: 8px; overflow: hidden; background: var(--paper-3); grid-column: 1 / -1; }
   .budget-visual > i span { display: block; width: 57.8%; height: 100%; background: var(--green); }
-  .trace-visual span { padding: 8px 10px; border: 1px solid var(--hairline); font-family: var(--mono); font-size: 11px; }
-  .trace-visual i { width: clamp(8px, 3vw, 50px); height: 1px; background: var(--hairline); }
-  .trace-visual span:last-child { border-color: var(--signal); color: var(--signal-dark); }
+  .trace-visual { position: absolute; top: 70px; right: 22px; left: 22px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+  .trace-visual span { padding: 9px 8px; border: 1px solid var(--hairline); font-family: var(--mono); font-size: 11px; text-align: center; }
+  .trace-visual span:last-child { border-color: var(--signal); color: var(--signal-dark); grid-column: 1 / -1; }
 
   .sovereignty-copy h2 { margin-top: 33px; font-size: clamp(54px, 6vw, 92px); }
   .sovereignty-copy > p:nth-of-type(2) { max-width: 470px; margin-top: 35px; color: var(--muted); font-size: 17px; line-height: 1.65; }
@@ -829,12 +813,8 @@
     .callout-three { bottom: 21%; left: 8%; }
 
     .capability-grid { display: block; }
-    .capability-card, .capability-wide { min-height: 350px; }
+    .capability-card { min-height: 350px; }
     .capability-card + .capability-card { margin-top: 10px; }
-    .fanout-runs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .trace-visual { top: 78px; right: 18px; left: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
-    .trace-visual span { padding: 7px 5px; font-size: 11px; text-align: center; }
-    .trace-visual i { display: none; }
 
     .sovereignty-copy h2 { font-size: 55px; }
     .deploy-tabs { overflow-x: auto; }
@@ -870,7 +850,7 @@
     .policy-rail { bottom: 6px; }
     .capability-card { padding: 18px; }
     .capability-copy { right: 18px; bottom: 18px; left: 18px; }
-    .template-visual, .microvm-visual, .acl-visual, .budget-visual { right: 18px; left: 18px; }
+    .template-visual, .acl-visual, .budget-visual, .trace-visual { right: 18px; left: 18px; }
     .signup-copy h2 { font-size: 50px; }
     .signup-card { padding: 24px 18px; }
   }
