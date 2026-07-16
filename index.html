@@ -331,46 +331,6 @@
         </div>
       </section>
 
-      <section class="feature-summary section-pad" id="features">
-        <div class="feature-summary-heading reveal">
-          <p class="section-index">06 / Run lifecycle</p>
-          <h2>One record for every run.</h2>
-          <p>Keep the input bundle, runner settings, event stream, filesystem snapshot, and outputs under the same run ID.</p>
-        </div>
-        <div class="feature-summary-grid reveal">
-          <article class="feature-summary-card">
-            <span class="feature-summary-label">ORCHESTRATE</span>
-            <h3>Start parallel runs from the CLI.</h3>
-            <p>Launch one task or a bounded parallel task list from your terminal, CI, or coding agent. Include only the files each run needs.</p>
-          </article>
-          <article class="feature-summary-card">
-            <span class="feature-summary-label">ISOLATE</span>
-            <h3>One MicroVM per run.</h3>
-            <p>Give each run a dedicated guest kernel, explicit resource limits, and its own persistent filesystem.</p>
-          </article>
-          <article class="feature-summary-card">
-            <span class="feature-summary-label">CONFIGURE</span>
-            <h3>Choose the runner and model.</h3>
-            <p>Use OpenCode with your preferred model and reusable templates for tools, permissions, and resource defaults.</p>
-          </article>
-          <article class="feature-summary-card">
-            <span class="feature-summary-label">CONTROL</span>
-            <h3>Fix the limits up front.</h3>
-            <p>Set CPU, memory, timeout, workspace retention, and approved runner defaults for each run.</p>
-          </article>
-          <article class="feature-summary-card">
-            <span class="feature-summary-label">OBSERVE</span>
-            <h3>See what the runner did.</h3>
-            <p>Stream agent turns, tool calls, file changes, model usage, logs, and errors as they happen.</p>
-          </article>
-          <article class="feature-summary-card">
-            <span class="feature-summary-label">RESUME</span>
-            <h3>Resume from a saved snapshot.</h3>
-            <p>Restore the filesystem with artifacts, agent state, and conversation history, then continue the same sandbox.</p>
-          </article>
-        </div>
-      </section>
-
       <section class="signup section-pad" id="signup">
         <span class="brand-symbol signup-mark" aria-hidden="true"></span>
         <div class="signup-copy reveal">
@@ -378,7 +338,7 @@
           <h2>Sign up for Sanbox</h2>
           <p>Tell us where you’ll use Sanbox. We’ll set up your account and send login instructions within 24 hours.</p>
           <a class="text-link text-link-light" href="mailto:sales@sanlabs.ai?subject=Sanbox%20inquiry">
-            Deployment or security question? Talk to us <span aria-hidden="true">↗</span>
+            Talk to us <span aria-hidden="true">↗</span>
           </a>
         </div>
 
@@ -412,7 +372,7 @@
                 type="text"
                 name="organization"
                 autocomplete="organization"
-                placeholder="Company or team"
+                placeholder="Company"
                 minlength="2"
                 maxlength="120"
                 required
@@ -423,7 +383,7 @@
               <span>What do you want to run? <b>Optional</b></span>
               <textarea
                 name="use_case"
-                placeholder="Example: review contracts and flag risky clauses."
+                placeholder="Review a data room across contracts, financials, and security."
                 maxlength="1000"
                 rows="4"
               ></textarea>
@@ -450,13 +410,6 @@
     </main>
 
     <footer class="site-footer">
-      <a class="wordmark footer-wordmark" href="#top" aria-label="Sanbox by Sanlabs home">
-        <span class="brand-symbol wordmark-mark" aria-hidden="true"></span>
-        <span class="wordmark-copy">
-          <span class="wordmark-text"><span class="wordmark-san">San</span><span class="wordmark-box">box</span></span>
-          <span class="wordmark-byline">by Sanlabs</span>
-        </span>
-      </a>
       <nav class="footer-links" aria-label="Legal">
         <a href="impressum/">Impressum</a>
         <a href="datenschutz/">Datenschutz</a>

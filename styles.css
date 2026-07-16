@@ -175,14 +175,6 @@
     border-top: 1px solid var(--hairline);
   }
 
-  .feature-summary {
-    display: grid;
-    grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
-    gap: clamp(72px, 9vw, 140px);
-    align-items: start;
-    border-top: 1px solid var(--hairline);
-  }
-
   .signup {
     position: relative;
     display: grid;
@@ -200,13 +192,13 @@
   }
 
   .site-footer {
-    display: grid;
+    display: flex;
     width: var(--page);
     margin: 0 auto;
     padding: 44px 0;
-    grid-template-columns: auto 1fr auto;
-    gap: 50px;
     align-items: center;
+    justify-content: flex-end;
+    gap: 22px;
   }
 
   .legal-shell {
@@ -301,7 +293,6 @@
   .boundary-intro h2,
   .capability-heading h2,
   .sovereignty-copy h2,
-  .feature-summary-heading h2,
   .signup-copy h2 {
     font-weight: 570;
     letter-spacing: -.065em;
@@ -623,14 +614,6 @@
   .deployment-profile dt { color: var(--signal-dark); font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .07em; }
   .deployment-profile dd { margin: 0; color: var(--ink-2); font-size: 15px; }
 
-  .feature-summary-heading h2 { margin-top: 33px; font-size: clamp(52px, 5.5vw, 78px); }
-  .feature-summary-heading > p:last-child { margin-top: 30px; color: var(--muted); font-size: 16px; line-height: 1.65; }
-  .feature-summary-grid { display: grid; border-top: 1px solid var(--hairline); border-left: 1px solid var(--hairline); grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .feature-summary-card { display: flex; min-height: 250px; padding: 28px 30px 30px; border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); flex-direction: column; }
-  .feature-summary-label { color: var(--signal-dark); font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .1em; }
-  .feature-summary-card h3 { max-width: 330px; margin-top: 38px; font-size: clamp(25px, 2.2vw, 32px); font-weight: 620; letter-spacing: -.04em; line-height: 1.05; }
-  .feature-summary-card p { max-width: 38ch; margin-top: auto; padding-top: 24px; color: var(--muted); font-size: 16px; line-height: 1.6; }
-
   .signup-mark { position: absolute; bottom: -190px; left: -3%; width: min(39vw, 560px); aspect-ratio: 109.99 / 120.5; color: rgba(255,255,255,.07); transform: rotate(-7deg); }
   .signup-copy { position: relative; z-index: 2; max-width: 700px; }
   .signup-copy .section-index { color: rgba(255,255,255,.65); }
@@ -670,10 +653,13 @@
   .text-link-light { color: white; border-bottom-color: rgba(255,255,255,.42); }
   .text-link-light:hover { border-bottom-color: white; }
 
-  .footer-wordmark { gap: 9px; font-size: 20px; }
-  .footer-wordmark .wordmark-mark { width: 24px; height: 27px; }
-  .footer-links { justify-self: center; }
-  .copyright { justify-self: end; color: var(--muted); font-family: var(--mono); font-size: 11px; }
+  .footer-links {
+    color: var(--muted);
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .copyright { color: var(--muted); font-family: var(--mono); font-size: 11px; }
 
   .legal-article > .section-index { margin-bottom: 28px; }
   .legal-article h1 {
@@ -775,10 +761,7 @@
     .sovereignty { display: block; }
     .sovereignty-copy { max-width: 680px; }
     .sovereignty-panel { margin-top: 60px; }
-    .feature-summary { display: block; }
-    .feature-summary-heading { max-width: 630px; margin-bottom: 56px; }
     .signup { min-height: 720px; grid-template-columns: minmax(0, .8fr) minmax(390px, 1fr); gap: 55px; }
-    .site-footer { grid-template-columns: auto 1fr; gap: 28px; }
   }
 
   @media (max-width: 720px) {
@@ -817,7 +800,7 @@
     .statement h2 { font-size: 53px; }
     .statement-copy { margin-top: 38px; font-size: 17px; }
 
-    .section-heading h2, .capability-heading h2, .feature-summary-heading h2 { font-size: 50px; }
+    .section-heading h2, .capability-heading h2 { font-size: 50px; }
     .terminal-chrome { grid-template-columns: 1fr auto; }
     .terminal-path { display: none; }
     .terminal-tabs { padding: 0 12px; }
@@ -863,18 +846,12 @@
     .deployment-profile dl > div { display: block; }
     .deployment-profile dd { margin-top: 6px; }
 
-    .feature-summary-heading { margin-bottom: 50px; }
-    .feature-summary-grid { grid-template-columns: 1fr; }
-    .feature-summary-card { min-height: 230px; padding: 24px; }
-    .feature-summary-card h3 { margin-top: 38px; font-size: 27px; }
-
     .signup { display: block; min-height: 0; padding-top: 95px; padding-bottom: 95px; }
     .signup-mark { right: -24%; bottom: -95px; left: auto; width: 420px; }
     .signup-copy h2 { font-size: 57px; }
     .signup-copy > .text-link { display: flex; margin-top: 32px; }
     .signup-card { max-width: none; margin-top: 55px; padding: 28px 22px; }
-    .site-footer { display: grid; padding: 34px 0; grid-template-columns: 1fr auto; gap: 20px 24px; }
-    .footer-links { grid-column: 1 / -1; grid-row: 2; justify-self: start; }
+    .site-footer { padding: 34px 0; flex-wrap: wrap; justify-content: flex-end; }
     .legal-shell { width: calc(100vw - 28px); }
     .legal-header-inner,
     .legal-footer-inner { min-height: 64px; }
