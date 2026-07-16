@@ -171,8 +171,9 @@
           <p class="section-index reveal">03 / Runtime</p>
           <h2 class="reveal">Resume every run<br />from a saved snapshot.</h2>
           <p class="reveal">
-            Sanbox keeps the run settings, event stream, and filesystem snapshot under one run ID. Stop the microVM,
-            inspect the record, and continue later from the same state.
+            Sanbox snapshots the filesystem together with artifacts, agent state, and conversation history. When the
+            task changes, a new trigger arrives, or new information becomes available, resume the run from where the
+            agent left off.
           </p>
         </div>
 
