@@ -56,9 +56,9 @@
             Run AI agents in<br />isolated <span class="hero-accent">sandboxes.</span>
           </h1>
           <p class="hero-lede reveal" style="--delay: 180ms">
-            Launch parallel runs from the CLI, each in an isolated microVM with a persistent filesystem. Sanbox
-            records tool calls and model activity while preserving artifacts, agent state, and conversation history,
-            so you can resume any sandbox later.
+            Launch parallel runs from the CLI, each in an isolated microVM with a persistent filesystem. Every
+            sandbox comes preconfigured with an agent harness, model access, an LLM budget, network ACLs, and scoped
+            secrets.
           </p>
           <div class="hero-actions reveal" style="--delay: 240ms">
             <a class="button button-primary" href="#signup">
@@ -127,20 +127,14 @@
           <h2 class="reveal">A prompt is not a<br />security boundary.</h2>
           <div class="statement-copy reveal">
             <p>
-              Agents need files, tools, credentials, state, and network access. Sanbox places those inputs in a
-              dedicated MicroVM with configured resource and network limits.
+              Instructions guide the agent. Runtime policy defines what it can actually access. Sanbox resolves
+              files, tools, credentials, model access, resource limits, and network policy before execution.
             </p>
             <p>
-              The filesystem is snapshotted with artifacts, agent state, and conversation history. Stop the sandbox,
-              inspect the run record, and resume it from the same state later.
+              Tool calls, file changes, model activity, and outputs remain attached to the run record. When the run
+              stops, its filesystem and agent state remain available for inspection or continuation.
             </p>
           </div>
-        </div>
-        <div class="principle-strip reveal">
-          <div><span>01</span><b>Delegate</b><small>task + inputs</small></div>
-          <div><span>02</span><b>Contain</b><small>runtime + policy</small></div>
-          <div><span>03</span><b>Observe</b><small>events + effects</small></div>
-          <div><span>04</span><b>Preserve</b><small>snapshot + artifacts</small></div>
         </div>
       </section>
 
@@ -169,12 +163,6 @@
           <div class="terminal-status">
             <span><i></i> connected to eu-central-01</span>
           </div>
-        </div>
-
-        <div class="feature-notes reveal">
-          <div><span class="feature-glyph">01</span><p><b>Agent-native onboarding</b><small><code>sanbox init</code> adds the right instructions for coding agents.</small></p></div>
-          <div><span class="feature-glyph">02</span><p><b>Portable run bundles</b><small>Inspect exactly which task and files leave your machine.</small></p></div>
-          <div><span class="feature-glyph">03</span><p><b>Resumable workspaces</b><small>Resume from a saved filesystem snapshot with agent state and conversation history intact.</small></p></div>
         </div>
       </section>
 
