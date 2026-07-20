@@ -587,7 +587,6 @@
   .signup-copy { position: relative; z-index: 2; max-width: 700px; }
   .signup-copy .section-index { color: rgba(255,255,255,.65); }
   .signup-copy h2 { max-width: 700px; margin-top: 31px; font-size: clamp(56px, 6.2vw, 94px); }
-  .signup-copy > p:nth-of-type(2) { max-width: 580px; margin-top: 31px; color: rgba(255,255,255,.78); font-size: 18px; line-height: 1.65; }
   .signup-copy > .text-link { display: inline-flex; margin-top: 42px; }
   .signup-card { position: relative; z-index: 2; width: 100%; max-width: 540px; justify-self: end; padding: clamp(28px, 4vw, 44px); border: 1px solid rgba(255,255,255,.13); background: #19211e; box-shadow: 0 30px 90px rgba(0,0,0,.22); }
   .signup-form { display: grid; gap: 22px; }
